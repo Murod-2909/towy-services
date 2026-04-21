@@ -1,0 +1,102 @@
+$primary-color: #ff3c00;
+$secondary-color: #0a0a0a;
+$text-color: #333;
+$white: #fff;
+$bg-color: #f9f9f9;
+$border-color: #e5e5e5;
+
+$font-main: "Roboto", sans-serif;
+
+$container-width: 1200px;
+$container-padding: 20px;
+
+$transition: all 0.3s ease;
+
+$bp-lg: 1200px;
+$bp-md: 992px;
+$bp-sm: 768px;
+$bp-xs: 576px;
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: $font-main;
+  background: $bg-color;
+  color: $text-color;
+  line-height: 1.6;
+  min-height: 100vh;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: $transition;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+  border: none;
+  outline: none;
+}
+
+button {
+  background: none;
+  cursor: pointer;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+section {
+  padding: 80px 0;
+}
+
+.container {
+  width: 100%;
+  max-width: calc(#{$container-width} + (#{$container-padding} * 2));
+  margin: 0 auto;
+  padding: 0 $container-padding;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: $secondary-color;
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+p {
+  line-height: 1.7;
+}
+
+@media (max-width: $bp-sm) {
+  section {
+    padding: 60px 0;
+  }
+}

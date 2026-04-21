@@ -1,0 +1,15 @@
+.logo {
+  color: #fff;
+  font-size: 40px;
+  letter-spacing: 5px;
+  animation: fade 1.5s infinite alternate;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0.3;
+  }
+  to {
+    opacity: 1;
+  }
+}
