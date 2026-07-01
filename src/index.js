@@ -4,6 +4,13 @@ import Routes from './App';
 import "./assets/style/global.scss"
 import { BrowserRouter } from "react-router-dom";
 
+// Loaded at runtime (not in index.html) so a slow/unreachable font CDN
+// never blocks the page's initial render or load event.
+const fontLink = document.createElement("link");
+fontLink.rel = "stylesheet";
+fontLink.href = "https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap";
+document.head.appendChild(fontLink);
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(

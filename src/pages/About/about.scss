@@ -1,0 +1,169 @@
+@use "../../assets/style/global" as *;
+
+// ── Story section ──────────────────────────────────────────────────
+.about-story {
+  padding: 6rem 0;
+  background: $white;
+
+  &__inner {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    align-items: center;
+    gap: 4rem;
+  }
+
+  &__visual {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__circle {
+    position: absolute;
+    width: 320px;
+    height: 320px;
+    border-radius: 50%;
+    background: rgba($yellow-color, 0.12);
+  }
+
+  &__truck {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 420px;
+  }
+
+  &__eyebrow {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: rgba($secondary-color, 0.4);
+    display: block;
+    margin-bottom: 0.4rem;
+  }
+
+  &__heading {
+    font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+    font-weight: 400;
+    color: $secondary-color;
+    line-height: 1.15;
+    margin-bottom: 0.9rem;
+
+    strong { font-weight: 900; }
+  }
+
+  &__deco {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 1.6rem;
+
+    span {
+      display: block;
+      height: 3px;
+      border-radius: 999px;
+      background: $yellow-color;
+
+      &:nth-child(1) { width: 18px; }
+      &:nth-child(2) { width: 10px; opacity: 0.6; }
+      &:nth-child(3) { width: 10px; opacity: 0.4; }
+      &:nth-child(4) { width: 6px;  opacity: 0.25; }
+    }
+  }
+
+  p {
+    color: rgba($secondary-color, 0.55);
+    margin-bottom: 1.1rem;
+
+    &:last-child { margin-bottom: 0; }
+  }
+}
+
+// ── Values section ──────────────────────────────────────────────────
+.about-values {
+  padding: 6rem 0;
+  background: $bg-color;
+
+  &__header {
+    text-align: center;
+    margin-bottom: 3.5rem;
+  }
+
+  &__eyebrow {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: rgba($secondary-color, 0.4);
+    display: block;
+    margin-bottom: 0.4rem;
+  }
+
+  &__heading {
+    font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+    font-weight: 400;
+    color: $secondary-color;
+
+    strong { font-weight: 900; }
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+  }
+
+  &__card {
+    background: $white;
+    border-top: 3px solid $primary-color;
+    border-radius: 4px;
+    padding: 2rem 1.6rem;
+    box-shadow: 0 10px 30px rgba($secondary-color, 0.06);
+
+    h3 {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: $secondary-color;
+      margin-bottom: 0.8rem;
+    }
+
+    p {
+      font-size: 0.9rem;
+      line-height: 1.7;
+      color: rgba($secondary-color, 0.55);
+    }
+  }
+}
+
+@media (max-width: $bp-lg) {
+  .about-story__inner {
+    gap: 2.5rem;
+  }
+
+  .about-values__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: $bp-sm) {
+  .about-story {
+    padding: 3rem 0;
+
+    &__inner {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+      text-align: center;
+    }
+
+    &__deco { justify-content: center; }
+  }
+
+  .about-values {
+    padding: 3rem 0;
+
+    &__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+}

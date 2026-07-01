@@ -1,0 +1,52 @@
+@use "../../assets/style/global" as *;
+
+.contact-info {
+  padding: 5rem 0 1rem;
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  &__card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 2rem;
+    text-align: center;
+    background: $white;
+    border-top: 3px solid $primary-color;
+    border-radius: 4px;
+    box-shadow: 0 10px 30px rgba($secondary-color, 0.06);
+  }
+
+  &__label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: rgba($secondary-color, 0.4);
+  }
+
+  &__value {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: $secondary-color;
+  }
+
+  a.contact-info__value:hover {
+    color: $primary-color;
+  }
+}
+
+@media (max-width: $bp-sm) {
+  .contact-info {
+    padding: 3rem 0 0.5rem;
+
+    &__grid {
+      grid-template-columns: 1fr;
+      gap: 1.2rem;
+    }
+  }
+}

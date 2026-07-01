@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="sky2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#221010"/>
+      <stop offset="55%" stop-color="#2a1512"/>
+      <stop offset="100%" stop-color="#120a0a"/>
+    </linearGradient>
+  </defs>
+  <rect width="1920" height="1080" fill="url(#sky2)"/>
+  <g opacity="0.55">
+    <circle cx="420" cy="360" r="420" fill="#ff3c00" opacity="0.18"/>
+    <circle cx="420" cy="360" r="260" fill="#ff3c00" opacity="0.22"/>
+    <circle cx="420" cy="360" r="120" fill="#ffc326" opacity="0.3"/>
+  </g>
+  <g opacity="0.45">
+    <circle cx="1550" cy="700" r="380" fill="#ffc326" opacity="0.14"/>
+    <circle cx="1550" cy="700" r="220" fill="#ffc326" opacity="0.18"/>
+  </g>
+  <rect x="0" y="820" width="1920" height="260" fill="#0d0808"/>
+  <g stroke="#ff3c00" stroke-width="10" stroke-dasharray="70 60" opacity="0.3">
+    <line x1="-100" y1="930" x2="2000" y2="930"/>
+  </g>
+</svg>

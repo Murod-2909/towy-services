@@ -1,10 +1,11 @@
 import { useState, useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 import "./hero.scss";
 
 
-import heroBg1 from "../../assets/image/02-2.jpg";
-import heroBg2 from "../../assets/image/06-1.jpg";
-import heroBg3 from "../../assets/image/quote.jpg";
+import heroBg1 from "../../assets/image/hero-1.svg";
+import heroBg2 from "../../assets/image/hero-2.svg";
+import heroBg3 from "../../assets/image/hero-3.svg";
 // ─────────────────────────────────────────────────────────────────────
 
 const slides = [
@@ -49,11 +50,14 @@ function Hero() {
     const next = () => goTo((current + 1) % slides.length);
     const prev = () => goTo((current - 1 + slides.length) % slides.length);
 
-    // Autoplay
+    // Autoplay — resets whenever the slide changes (manual nav or auto)
     useEffect(() => {
-        timerRef.current = setInterval(next, AUTOPLAY_DELAY);
+        timerRef.current = setInterval(() => {
+            setCurrent((c) => (c + 1) % slides.length);
+            setAnimKey((k) => k + 1);
+        }, AUTOPLAY_DELAY);
         return () => clearInterval(timerRef.current);
-    }, [current]);
+    }, [animKey]);
 
     const slide = slides[current];
 
@@ -84,12 +88,12 @@ function Hero() {
                 <p className="hero__sub">{slide.sub}</p>
 
                 <div className="hero__actions">
-                    <a href="#services" className="hero__btn hero__btn--primary">
+                    <Link to="/services" className="hero__btn hero__btn--primary">
                         Our Services
-                    </a>
-                    <a href="#contacts" className="hero__btn hero__btn--outline">
+                    </Link>
+                    <Link to="/contacts" className="hero__btn hero__btn--outline">
                         Get a Quote
-                    </a>
+                    </Link>
                 </div>
             </div>
 

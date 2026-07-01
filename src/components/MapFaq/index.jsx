@@ -1,5 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import './MapFaq.scss';
+import 'leaflet/dist/leaflet.css';
+import markerIcon2x from 'leaflet/dist/images/marker-icon-2x.png';
+import markerIcon from 'leaflet/dist/images/marker-icon.png';
+import markerShadow from 'leaflet/dist/images/marker-shadow.png';
 
 // ── Ofis nuqtalari — O'zbekiston shaharlari ──
 const OFFICES = [
@@ -48,24 +52,15 @@ const LeafletMap = () => {
             import('leaflet'),
             import('react-leaflet'),
         ]).then(([L, RL]) => {
-            // Default marker icon fix
+            // Default marker icon fix — bundled locally, no CDN dependency
             delete L.default.Icon.Default.prototype._getIconUrl;
             L.default.Icon.Default.mergeOptions({
-                iconRetinaUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon-2x.png',
-                iconUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png',
-                shadowUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png',
+                iconRetinaUrl: markerIcon2x,
+                iconUrl: markerIcon,
+                shadowUrl: markerShadow,
             });
             setMapComponents({ L: L.default, RL });
         });
-
-        // Leaflet CSS
-        if (!document.getElementById('leaflet-css')) {
-            const link = document.createElement('link');
-            link.id = 'leaflet-css';
-            link.rel = 'stylesheet';
-            link.href = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';
-            document.head.appendChild(link);
-        }
     }, []);
 
     if (!MapComponents) {
