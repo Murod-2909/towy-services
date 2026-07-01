@@ -2,8 +2,6 @@
 // JoinQuote Section — SCSS
 // ===========================
 
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap');
-
 // --- Variables ---
 $yellow:       #f5a800;
 $dark:         #1e1e1e;
@@ -33,7 +31,6 @@ $input-focus:  rgba($yellow, 0.55);
   display: grid;
   grid-template-columns: 1fr 1fr;
   min-height: 580px;
-  font-family: 'Open Sans', sans-serif;
   // NOTE: overflow: hidden is intentionally removed so
   // background-attachment: fixed works correctly in both panels.
 
@@ -46,7 +43,6 @@ $input-focus:  rgba($yellow, 0.55);
 // Shared heading / divider
 // ===========================
 .section-heading {
-  font-family: 'Oswald', sans-serif;
   font-size: 2.4rem;
   font-weight: 400;
   text-transform: uppercase;
@@ -140,7 +136,6 @@ $input-focus:  rgba($yellow, 0.55);
     padding: 16px 44px;
     background: $dark;
     color: $white;
-    font-family: 'Oswald', sans-serif;
     font-size: 0.85rem;
     font-weight: 600;
     letter-spacing: 2.5px;
@@ -216,7 +211,6 @@ $input-focus:  rgba($yellow, 0.55);
     background: $input-bg;
     border: 1px solid $input-border;
     color: $white;
-    font-family: 'Open Sans', sans-serif;
     font-size: 0.86rem;
     letter-spacing: 0.4px;
     outline: none;
@@ -238,7 +232,6 @@ $input-focus:  rgba($yellow, 0.55);
     padding: 16px 52px;
     background: $yellow;
     color: $dark;
-    font-family: 'Oswald', sans-serif;
     font-size: 0.85rem;
     font-weight: 700;
     letter-spacing: 2.5px;

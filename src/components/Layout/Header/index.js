@@ -1,27 +1,33 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
+import { NavLink, useLocation } from "react-router-dom";
 import "../../../assets/style/header.scss";
 import logo from "../../../assets/image/logo.png";
 
 const navItems = [
-    { label: "Home",     href: "#home"     },
-    { label: "About",    href: "#about"    },
-    { label: "Services", href: "#services" },
-    { label: "Gallery",  href: "#gallery"  },
-    { label: "Blog",     href: "#blog"     },
-    { label: "Contacts", href: "#contacts" },
+    { label: "Home",     to: "/"         },
+    { label: "About",    to: "/about"    },
+    { label: "Services", to: "/services" },
+    { label: "Gallery",  to: "/gallery"  },
+    { label: "Blog",     to: "/blog"     },
+    { label: "Contacts", to: "/contacts" },
 ];
 
 const leftNavItems  = navItems.slice(0, 3);
 const rightNavItems = navItems.slice(3);
 
-function NavList({ items, className = "" }) {
+function NavList({ items, className = "", onLinkClick }) {
     return (
         <ul className={`header__nav-list ${className}`.trim()}>
             {items.map((item) => (
-                <li key={item.href} className="header__nav-item">
-                    <a className="header__nav-link" href={item.href}>
+                <li key={item.to} className="header__nav-item">
+                    <NavLink
+                        className="header__nav-link"
+                        to={item.to}
+                        end={item.to === "/"}
+                        onClick={onLinkClick}
+                    >
                         {item.label}
-                    </a>
+                    </NavLink>
                 </li>
             ))}
         </ul>
@@ -31,8 +37,14 @@ function NavList({ items, className = "" }) {
 function Header() {
     const [isOpen, setIsOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
+    const { pathname } = useLocation();
 
     const toggleMenu = () => setIsOpen((prev) => !prev);
+
+    // Close mobile menu on route change
+    useEffect(() => {
+        setIsOpen(false);
+    }, [pathname]);
 
     // Fixed header — scroll detection
     useEffect(() => {
@@ -62,7 +74,7 @@ function Header() {
                 </nav>
 
                 {/* Logo */}
-                <a className="header__brand" href="#home" aria-label="Towy Services home">
+                <NavLink className="header__brand" to="/" aria-label="Towy Services home">
                     <span className="header__brand-mark" aria-hidden="true">
                         <img
                             src={logo}
@@ -77,7 +89,7 @@ function Header() {
                         <span className="header__brand-title">24/7 TOWY</span>
                         <span className="header__brand-subtitle">Towing Services</span>
                     </span>
-                </a>
+                </NavLink>
 
                 {/* Right desktop nav */}
                 <nav className="header__nav header__nav--right" aria-label="Right menu">
@@ -106,19 +118,11 @@ function Header() {
                 aria-hidden={!isOpen}
             >
                 <div className="container">
-                    <ul className="header__nav-list header__nav-list--mobile">
-                        {navItems.map((item) => (
-                            <li key={item.href} className="header__nav-item">
-                                <a
-                                    className="header__nav-link"
-                                    href={item.href}
-                                    onClick={handleMobileLinkClick}
-                                >
-                                    {item.label}
-                                </a>
-                            </li>
-                        ))}
-                    </ul>
+                    <NavList
+                        items={navItems}
+                        className="header__nav-list--mobile"
+                        onLinkClick={handleMobileLinkClick}
+                    />
                 </div>
             </nav>
         </header>

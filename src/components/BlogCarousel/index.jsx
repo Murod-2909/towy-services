@@ -1,34 +1,40 @@
 import React, { useState, useRef, useEffect } from 'react';
 import './BlogCarousel.scss';
 
+import img1 from '../../assets/image/gallery-1.svg';
+import img2 from '../../assets/image/gallery-5.svg';
+import img3 from '../../assets/image/gallery-3.svg';
+import img4 from '../../assets/image/gallery-6.svg';
+import img5 from '../../assets/image/gallery-2.svg';
+
 const POSTS = [
     {
         id: 1,
-        img: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80',
-        title: 'Post Status',
-        excerpt: 'Shoulder flank turducken sirloin venison picanha corned beef pork.',
-    },
-    {
-        id: 2,
-        img: 'https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=600&q=80',
-        title: 'Corned Beef Pork Belly Brisket Tri-tip Rump Sausage',
-        excerpt: 'Bresaola t-bone bacon ribeye frankfurter swine sausage beef shank. Spare ribs swine fatback...',
-    },
-    {
-        id: 3,
-        img: 'https://images.unsplash.com/photo-1530046339160-ce3e530c7d2f?w=600&q=80',
-        title: 'Shoulder Salami Spare Ribs Doner Drumstick Tongue',
-        excerpt: 'Bresaola t-bone bacon ribeye frankfurter swine sausage beef shank. Spare ribs swine fatback...',
-    },
-    {
-        id: 4,
-        img: 'https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?w=600&q=80',
+        img: img1,
         title: 'Fast Response Towing Service',
         excerpt: 'Our team is available 24/7 to help you get back on the road as quickly as possible.',
     },
     {
+        id: 2,
+        img: img2,
+        title: 'Choosing The Right Towing Method',
+        excerpt: 'Flatbed, wheel-lift or dolly — how we decide which method keeps your vehicle safest.',
+    },
+    {
+        id: 3,
+        img: img3,
+        title: 'Motorcycle Towing Done Right',
+        excerpt: 'Why motorcycles need specialized equipment and a trained crew during every tow.',
+    },
+    {
+        id: 4,
+        img: img4,
+        title: 'What To Do Right After An Accident',
+        excerpt: 'A short checklist of the first steps that keep you safe and make the tow smoother.',
+    },
+    {
         id: 5,
-        img: 'https://images.unsplash.com/photo-1502161254066-6c74afbf07aa?w=600&q=80',
+        img: img5,
         title: 'Emergency Roadside Assistance',
         excerpt: 'Flat tire, dead battery, or locked out? We have you covered anywhere, anytime.',
     },

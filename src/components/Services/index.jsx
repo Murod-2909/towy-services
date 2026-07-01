@@ -1,12 +1,12 @@
 import { useEffect, useRef } from "react";
 import "./services.scss";
 
-import iconTowing    from "../../assets/image/towing.png";
-import iconHail      from "../../assets/image/hail.png";
-import iconFlood     from "../../assets/image/flood.png";
-import iconAccident  from "../../assets/image/accident.png";
-import iconFire      from "../../assets/image/fire.png";
-import iconMotorcycle from "../../assets/image/motocycle.png";
+import iconTowing    from "../../assets/image/icon-towing.svg";
+import iconHail      from "../../assets/image/icon-hail.svg";
+import iconFlood     from "../../assets/image/icon-flood.svg";
+import iconAccident  from "../../assets/image/icon-accident.svg";
+import iconFire      from "../../assets/image/icon-fire.svg";
+import iconMotorcycle from "../../assets/image/icon-motorcycle.svg";
 
 const SERVICES = [
     {
