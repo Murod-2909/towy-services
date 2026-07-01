@@ -1,0 +1,417 @@
+@use "../../assets/style/global" as *;
+
+// ── HERO ────────────────────────────────────────────────────────────
+.hero {
+  position: relative;
+  height: 91vh;
+  min-height: 580px;
+  overflow: hidden;
+
+  // ── Slides ──
+  &__slide {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transform: scale(1.06);
+    transition: opacity 0.9s ease, transform 6s ease;
+    z-index: 0;
+
+    &.is-active {
+      opacity: 1;
+      transform: scale(1);
+      z-index: 1;
+    }
+  }
+
+  // ── Overlay ──
+  &__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+                    135deg,
+                    rgba(0, 0, 0, 0.72) 0%,
+                    rgba(0, 0, 0, 0.45) 60%,
+                    rgba(0, 0, 0, 0.55) 100%
+    );
+    z-index: 2;
+  }
+
+  // ── Content ──
+  &__content {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 72px;
+  }
+
+  // ── Tag ──
+  &__tag {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: $yellow-color;
+    background: rgba($yellow-color, 0.12);
+    border: 1px solid rgba($yellow-color, 0.3);
+    padding: 0.3rem 0.9rem;
+    border-radius: 2px;
+    margin-bottom: 1.2rem;
+    width: fit-content;
+
+    animation: fadeUp 0.6s ease both;
+    animation-delay: 0.1s;
+  }
+
+  // ── Title ──
+  &__title {
+    font-size: clamp(2rem, 5vw, 3.8rem);
+    font-weight: 800;
+    color: $white;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    margin-bottom: 0.4rem;
+
+    animation: fadeUp 0.6s ease both;
+    animation-delay: 0.25s;
+  }
+
+  &__accent {
+    color: $yellow-color;
+    display: inline-block;
+
+    animation: fadeUp 0.6s ease both;
+    animation-delay: 0.4s;
+  }
+
+  // ── Subtitle ──
+  &__sub {
+    margin-top: 1.2rem;
+    max-width: 480px;
+    font-size: clamp(0.9rem, 1.6vw, 1.05rem);
+    color: rgba($white, 0.72);
+    line-height: 1.65;
+
+    animation: fadeUp 0.6s ease both;
+    animation-delay: 0.55s;
+  }
+
+  // ── Buttons ──
+  &__actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2.2rem;
+    flex-wrap: wrap;
+
+    animation: fadeUp 0.6s ease both;
+    animation-delay: 0.7s;
+  }
+
+  &__btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.8rem 2rem;
+    font-size: 0.88rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 3px;
+    transition: all 0.25s ease;
+
+    &--primary {
+      background: $yellow-color;
+      color: $secondary-color;
+
+      &:hover {
+        background: lighten($yellow-color, 8%);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 24px rgba($yellow-color, 0.4);
+      }
+    }
+
+    &--outline {
+      background: transparent;
+      color: $white;
+      border: 2px solid rgba($white, 0.5);
+
+      &:hover {
+        border-color: $yellow-color;
+        color: $yellow-color;
+        transform: translateY(-2px);
+      }
+    }
+  }
+
+  // ── Arrows ──
+  &__arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 4;
+    width: 48px;
+    height: 48px;
+    border: 2px solid rgba($white, 0.3);
+    background: rgba(0, 0, 0, 0.25);
+    color: $white;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.25s ease;
+    backdrop-filter: blur(4px);
+
+    &:hover {
+      background: $yellow-color;
+      border-color: $yellow-color;
+      color: $secondary-color;
+      transform: translateY(-50%) scale(1.1);
+    }
+
+    &--prev { left: 1.5rem; }
+    &--next { right: 1.5rem; }
+  }
+
+  // ── Dots ──
+  &__dots {
+    position: absolute;
+    bottom: 5.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 4;
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  //&__dot {
+  //  width: 8px;
+  //  height: 8px;
+  //  border-radius: 50%;
+  //  border: 2px solid rgba($white, 0.5);
+  //  background: transparent;
+  //  cursor: pointer;
+  //  transition: all 0.3s ease;
+  //  padding: 0;
+  //
+  //  &.is-active {
+  //    background: $yellow-color;
+  //    border-color: $yellow-color;
+  //    width: 24px;
+  //    border-radius: 4px;
+  //  }
+  //}
+
+  // ── Progress bar ──
+  &__progress {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    background: $yellow-color;
+    z-index: 4;
+    width: 0;
+    animation: progress 5.5s linear forwards;
+  }
+
+  // ── Scroll mouse ──
+  &__scroll {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+
+    animation: fadeUp 0.8s ease both;
+    animation-delay: 1s;
+  }
+
+  &__mouse {
+    width: 24px;
+    height: 38px;
+    border: 2px solid rgba($white, 0.55);
+    border-radius: 12px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    padding-top: 6px;
+  }
+
+  &__wheel {
+    width: 3px;
+    height: 8px;
+    background: $white;
+    border-radius: 2px;
+    animation: scrollWheel 1.6s ease-in-out infinite;
+  }
+
+  &__scroll-label {
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.35em;
+    color: rgba($white, 0.55);
+  }
+}
+
+// ── INFO BAR ─────────────────────────────────────────────────────────
+.info-bar {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr 1fr;
+  position: relative;
+  z-index: 10;
+
+  &__cell {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.85rem;
+    padding: 0;
+    text-decoration: none;
+    transition: filter 0.2s ease;
+
+    &:hover { filter: brightness(1.08); }
+
+    &--yellow {
+      background: $yellow-color;
+      color: $secondary-color;
+      padding: 1.1rem 2rem;
+    }
+
+    &--dark {
+      background: $secondary-color;
+      color: $white;
+      padding: 1.1rem 1.5rem;
+    }
+  }
+
+  // Left/right icon + text blocks
+  &__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba($secondary-color, 0.15);
+    flex-shrink: 0;
+
+    svg {
+      display: block;
+      color: $white;
+    }
+  }
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+  }
+
+  &__label {
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    opacity: 0.75;
+  }
+
+  &__value {
+    font-size: 0.95rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  // Center phone block
+  &__phone-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.1rem;
+  }
+
+  &__phone-label {
+    font-size: 0.6rem;
+    font-weight: 600;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: rgba($white, 0.5);
+  }
+
+  &__phone {
+    display: block;
+    font-size: clamp(1.3rem, 2.5vw, 1.75rem);
+    font-weight: 300;
+    letter-spacing: 0.04em;
+    color: $white;
+    text-decoration: none;
+    transition: color 0.2s ease;
+    white-space: nowrap;
+
+    strong {
+      font-weight: 800;
+      color: $yellow-color;
+    }
+
+    &:hover { color: $yellow-color; }
+  }
+}
+
+
+// ── ANIMATIONS ───────────────────────────────────────────────────────
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes progress {
+  from { width: 0; }
+  to   { width: 100%; }
+}
+
+@keyframes scrollWheel {
+  0%  { opacity: 1; transform: translateY(0); }
+  60% { opacity: 0; transform: translateY(10px); }
+  61% { opacity: 0; transform: translateY(0); }
+  100%{ opacity: 1; transform: translateY(0); }
+}
+
+// ── RESPONSIVE ───────────────────────────────────────────────────────
+@media (max-width: $bp-md) {
+  .hero {
+    &__arrow { display: none; }
+    &__content { padding-top: 80px; }
+  }
+
+  .info-bar {
+    grid-template-columns: 1fr;
+
+    &__cell--dark { order: -1; }
+  }
+}
+
+@media (max-width: $bp-sm) {
+  .hero {
+    &__actions { flex-direction: column; }
+    &__btn { justify-content: center; }
+  }
+
+  .info-bar {
+    &__phone { font-size: 1.2rem; }
+  }
+}

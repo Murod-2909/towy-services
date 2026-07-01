@@ -1,0 +1,193 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap');
+
+$yellow: #f5a800;
+$dark:   #1e1e1e;
+$gray:   #888;
+$white:  #ffffff;
+$card-border: #e8e8e8;
+
+@mixin tr($p: all, $d: 0.35s, $e: ease) { transition: $p $d $e; }
+
+// ── Section ──────────────────────────────────
+.blog-section {
+  padding: 72px 0 80px;
+  background: $white;
+  font-family: 'Open Sans', sans-serif;
+  overflow: hidden;
+}
+
+// ── Header ───────────────────────────────────
+.blog-header {
+  text-align: center;
+  margin-bottom: 52px;
+  position: relative;
+
+  &::before {
+    content: '00';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -60%);
+    font-family: 'Oswald', sans-serif;
+    font-size: 9rem;
+    font-weight: 700;
+    color: rgba(0,0,0,0.05);
+    letter-spacing: -8px;
+    line-height: 1;
+    pointer-events: none;
+    user-select: none;
+    z-index: 0;
+  }
+
+  h2, p, .blog-divider { position: relative; z-index: 1; }
+
+  h2 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 2.6rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: $dark;
+    margin: 0 0 0.3rem;
+    strong { font-weight: 700; }
+  }
+
+  p {
+    font-size: 0.73rem;
+    letter-spacing: 3.5px;
+    text-transform: uppercase;
+    color: $gray;
+    margin: 0 0 1.2rem;
+  }
+}
+
+.blog-divider {
+  width: 48px;
+  height: 3px;
+  background: $yellow;
+  margin: 0 auto;
+  position: relative;
+
+  &::before, &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    height: 3px;
+    width: 10px;
+    background: $yellow;
+  }
+  &::before { left: -14px; }
+  &::after  { right: -14px; }
+}
+
+// ── Carousel wrapper ─────────────────────────
+.blog-carousel-wrapper {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 40px;
+
+  @media (max-width: 600px) { padding: 0 16px; }
+}
+
+.blog-track-outer { overflow: hidden; }
+
+.blog-track {
+  display: flex;
+  gap: 28px;
+  @include tr(transform, 0.45s, cubic-bezier(0.25, 0.46, 0.45, 0.94));
+  will-change: transform;
+}
+
+// ── Card ─────────────────────────────────────
+.blog-card {
+  flex: 0 0 calc(33.333% - 19px);
+  border: 1px solid $card-border;
+  background: $white;
+
+  @media (max-width: 900px) { flex: 0 0 calc(50% - 14px); }
+  @media (max-width: 560px) { flex: 0 0 100%; }
+}
+
+// Image — hover faqat shu yerda
+.card-img {
+  position: relative;
+  overflow: hidden;
+  height: 260px;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: grayscale(100%);
+    @include tr(transform 0.45s ease, filter 0.45s ease);
+  }
+
+  &:hover img {
+    transform: scale(1.05);
+    filter: grayscale(0%);
+  }
+}
+
+// Hazard stripe
+.card-stripe {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 14px;
+  background: repeating-linear-gradient(
+                  -45deg,
+                  $yellow 0px, $yellow 10px,
+                  $dark   10px, $dark   20px
+  );
+  opacity: 0.88;
+}
+
+// Card body
+.card-body {
+  padding: 32px 28px 36px;
+  text-align: center;
+
+  h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.12rem;
+    font-weight: 700;
+    color: $dark;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin: 0 0 1rem;
+    line-height: 1.4;
+  }
+
+  p {
+    font-size: 0.87rem;
+    color: $gray;
+    line-height: 1.75;
+    margin: 0;
+  }
+}
+
+// ── Dots ─────────────────────────────────────
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 36px;
+
+  button {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 2px solid $dark;
+    background: transparent;
+    cursor: pointer;
+    padding: 0;
+    @include tr(background, 0.2s);
+
+    &.active {
+      background: $yellow;
+      border-color: $yellow;
+    }
+  }
+}

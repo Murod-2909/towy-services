@@ -1,0 +1,234 @@
+@use "../../assets/style/global" as *;
+
+// ── OFFER SECTION ────────────────────────────────────────────────────
+.offer {
+  position: relative;
+  padding: 6rem 0;
+  background: $white;
+  overflow: hidden;
+
+  &__inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 4rem;
+  }
+
+  // ── Left — image side ──
+  &__visual {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    min-height: 420px;
+  }
+
+  // Big faded circle behind truck
+  //&__circle {
+  //  position: absolute;
+  //  top: 50%;
+  //  left: 50%;
+  //  transform: translate(-50%, -50%);
+  //  width: 420px;
+  //  height: 420px;
+  //  border-radius: 50%;
+  //  background: rgba(#e8e8e8, 0.55);
+  //  z-index: 0;
+  //}
+
+  // City silhouette
+  //&__city {
+  //  position: absolute;
+  //  bottom: 0;
+  //  left: 0;
+  //  right: 0;
+  //  height: 55%;
+  //  z-index: 1;
+  //  opacity: 0.18;
+  //  background:
+  //          url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 300'%3E%3Crect x='0'   y='80'  width='60'  height='220' fill='%23333'/%3E%3Crect x='70'  y='120' width='40'  height='180' fill='%23333'/%3E%3Crect x='120' y='50'  width='80'  height='250' fill='%23333'/%3E%3Crect x='210' y='90'  width='50'  height='210' fill='%23333'/%3E%3Crect x='270' y='30'  width='70'  height='270' fill='%23333'/%3E%3Crect x='350' y='100' width='45'  height='200' fill='%23333'/%3E%3Crect x='405' y='60'  width='90'  height='240' fill='%23333'/%3E%3Crect x='505' y='110' width='55'  height='190' fill='%23333'/%3E%3Crect x='570' y='70'  width='65'  height='230' fill='%23333'/%3E%3Crect x='645' y='130' width='40'  height='170' fill='%23333'/%3E%3Crect x='695' y='85'  width='55'  height='215' fill='%23333'/%3E%3Crect x='760' y='115' width='40'  height='185' fill='%23333'/%3E%3C/svg%3E")
+  //          bottom center / cover no-repeat;
+  //}
+
+  &__truck {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    object-fit: contain;
+    // Slide-in animation
+    animation: truckSlide 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  // ── Right — text side ──
+  &__content {
+    position: relative;
+    z-index: 1;
+  }
+
+  &__eyebrow {
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: rgba($secondary-color, 0.45);
+    margin-bottom: 0.5rem;
+  }
+
+  &__heading {
+    font-size: clamp(2rem, 3.5vw, 2.8rem);
+    font-weight: 400;
+    color: $secondary-color;
+    line-height: 1.15;
+    margin-bottom: 0.25rem;
+
+    strong {
+      font-weight: 900;
+    }
+  }
+
+  // Yellow dashes decoration
+  &__deco {
+    display: flex;
+    gap: 4px;
+    margin: 1.2rem 0 1.6rem;
+
+    span {
+      display: block;
+      width: 18px;
+      height: 3px;
+      border-radius: 999px;
+      background: $yellow-color;
+
+      &:nth-child(2) { width: 10px; opacity: 0.6; }
+      &:nth-child(3) { width: 10px; opacity: 0.4; }
+      &:nth-child(4) { width: 6px;  opacity: 0.25; }
+    }
+  }
+
+  &__desc {
+    font-size: 0.97rem;
+    line-height: 1.75;
+    color: rgba($secondary-color, 0.65);
+    max-width: 480px;
+    margin-bottom: 2rem;
+  }
+
+  // ── Checklist ──
+  &__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba($secondary-color, 0.09);
+    font-size: 0.95rem;
+    color: rgba($secondary-color, 0.75);
+    animation: fadeUp 0.5s ease both;
+
+    @for $i from 1 through 5 {
+      &:nth-child(#{$i}) { animation-delay: #{0.1 + $i * 0.1}s; }
+    }
+
+    &:last-child { border-bottom: none; }
+
+    strong { color: $secondary-color; font-weight: 700; }
+  }
+
+  &__check {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 22px;
+    flex-shrink: 0;
+    color: $yellow-color;
+
+    svg { display: block; }
+  }
+}
+
+// ── ANIMATIONS ───────────────────────────────────────────────────────
+@keyframes truckSlide {
+  from {
+    opacity: 0;
+    transform: translateX(-60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// ── RESPONSIVE ───────────────────────────────────────────────────────
+@media (max-width: $bp-lg) {
+  .offer {
+    &__inner {
+      gap: 2.5rem;
+    }
+
+    &__circle {
+      width: 340px;
+      height: 340px;
+    }
+  }
+}
+
+@media (max-width: $bp-md) {
+  .offer {
+    padding: 4rem 0;
+
+    &__inner {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    &__visual {
+      min-height: 280px;
+      order: 2;
+    }
+
+    &__content {
+      order: 1;
+    }
+
+    &__circle {
+      width: 280px;
+      height: 280px;
+    }
+
+    &__truck {
+      max-width: 340px;
+    }
+  }
+}
+
+@media (max-width: $bp-sm) {
+  .offer {
+    padding: 3rem 0;
+
+    &__heading {
+      font-size: 1.8rem;
+    }
+  }
+}

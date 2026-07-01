@@ -1,0 +1,161 @@
+@use "../../assets/style/global" as *;
+
+// ── SERVICES SECTION ─────────────────────────────────────────────────
+.services {
+  padding: 6rem 0;
+  background: $white;
+  overflow: hidden;
+
+  // ── Section header ──
+  &__header {
+    text-align: center;
+    margin-bottom: 4rem;
+    position: relative;
+  }
+
+  &__eyebrow {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: rgba($secondary-color, 0.4);
+    display: block;
+    margin-bottom: 0.4rem;
+  }
+
+  &__heading {
+    font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+    font-weight: 400;
+    color: $secondary-color;
+    line-height: 1.15;
+    margin-bottom: 0.9rem;
+
+    strong { font-weight: 900; }
+  }
+
+  // Yellow dashes
+  &__deco {
+    display: flex;
+    justify-content: center;
+    gap: 4px;
+    margin-top: 0.8rem;
+
+    span {
+      display: block;
+      height: 3px;
+      border-radius: 999px;
+      background: $yellow-color;
+
+      &:nth-child(1) { width: 18px; }
+      &:nth-child(2) { width: 10px; opacity: 0.6; }
+      &:nth-child(3) { width: 10px; opacity: 0.4; }
+      &:nth-child(4) { width: 6px;  opacity: 0.25; }
+    }
+  }
+
+  // ── Grid ──
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem 3rem;
+  }
+
+  // ── Card ──
+  &__card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 2rem 1.5rem 1.5rem;
+    border-radius: 4px;
+    cursor: default;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 40px rgba($secondary-color, 0.08);
+    }
+
+    // Appear animation
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.5s ease, transform 0.5s ease, box-shadow 0.3s ease;
+
+    &.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+
+      &:hover {
+        transform: translateY(-6px);
+      }
+    }
+
+    @for $i from 1 through 6 {
+      &:nth-child(#{$i}) { transition-delay: #{($i - 1) * 0.1}s; }
+    }
+  }
+
+  // ── Icon wrapper ──
+  &__icon {
+    width: 90px;
+    height: 90px;
+    margin-bottom: 1.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+
+    svg {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  // ── Card title ──
+  &__title {
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: $secondary-color;
+    margin-bottom: 0.9rem;
+    letter-spacing: 0.01em;
+  }
+
+  // ── Card description ──
+  &__desc {
+    font-size: 0.9rem;
+    line-height: 1.75;
+    color: rgba($secondary-color, 0.5);
+    max-width: 320px;
+  }
+}
+
+// ── RESPONSIVE ───────────────────────────────────────────────────────
+@media (max-width: $bp-lg) {
+  .services {
+    &__grid { gap: 2rem; }
+  }
+}
+
+@media (max-width: $bp-md) {
+  .services {
+    padding: 4rem 0;
+
+    &__grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem 2rem;
+    }
+  }
+}
+
+@media (max-width: $bp-sm) {
+  .services {
+    padding: 3rem 0;
+
+    &__grid {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    &__card { padding: 1.5rem 1rem; }
+  }
+}

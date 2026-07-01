@@ -1,0 +1,263 @@
+// ===========================
+// JoinQuote Section — SCSS
+// ===========================
+
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap');
+
+// --- Variables ---
+$yellow:       #f5a800;
+$dark:         #1e1e1e;
+$white:        #ffffff;
+$overlay-dark: rgba(18, 18, 18, 0.75);
+$overlay-yellow: rgba(245, 168, 0, 0.82);
+$input-border: rgba(255, 255, 255, 0.35);
+$input-bg:     rgba(255, 255, 255, 0.07);
+$input-focus:  rgba($yellow, 0.55);
+
+// --- Mixins ---
+@mixin flex-col-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin transition($props: all, $dur: 0.3s, $ease: ease) {
+  transition: $props $dur $ease;
+}
+
+// ===========================
+// Section wrapper
+// ===========================
+.join-quote-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 580px;
+  font-family: 'Open Sans', sans-serif;
+  // NOTE: overflow: hidden is intentionally removed so
+  // background-attachment: fixed works correctly in both panels.
+
+  @media (max-width: 900px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+// ===========================
+// Shared heading / divider
+// ===========================
+.section-heading {
+  font-family: 'Oswald', sans-serif;
+  font-size: 2.4rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 0 0 0.3rem;
+
+  strong {
+    font-weight: 700;
+    color: $yellow;
+  }
+}
+
+.section-sub {
+  font-size: 0.74rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  opacity: 0.72;
+  margin-bottom: 1.3rem;
+}
+
+.section-divider {
+  width: 48px;
+  height: 3px;
+  background: $yellow;
+  margin: 0 auto 2rem;
+  position: relative;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    height: 3px;
+    width: 10px;
+    background: $yellow;
+  }
+  &::before { left: -14px; }
+  &::after  { right: -14px; }
+}
+
+// ===========================
+// JOIN side — fixed bg + yellow overlay
+// ===========================
+.join-side {
+  position: relative;
+  padding: 72px 56px;
+  text-align: center;
+  color: $dark;
+  @include flex-col-center;
+
+  // ── Fixed background image (set via inline style on the element) ──
+  // background-image comes from the component prop; the fixed attachment
+  // creates the parallax/frozen effect on scroll.
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center center;
+  // Fallback colour if no image is supplied
+  background-color: $yellow;
+
+  // Yellow colour overlay on top of the image
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: $overlay-yellow;
+    z-index: 0;
+  }
+
+  // All direct children above the overlay
+  > * { position: relative; z-index: 1; }
+
+  // Divider & strong use dark colour on yellow bg
+  .section-heading strong { color: $dark; }
+
+  .section-divider {
+    background: $dark;
+    &::before,
+    &::after { background: $dark; }
+  }
+
+  .join-text {
+    font-size: 0.96rem;
+    line-height: 1.9;
+    max-width: 480px;
+    margin-bottom: 2.4rem;
+    opacity: 0.88;
+  }
+
+  .btn-apply {
+    display: inline-block;
+    padding: 16px 44px;
+    background: $dark;
+    color: $white;
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    @include transition(background, 0.25s);
+
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba($yellow, 0.18);
+      transform: scaleX(0);
+      transform-origin: left;
+      @include transition(transform, 0.3s);
+    }
+
+    &:hover {
+      background: #111;
+      &::after { transform: scaleX(1); }
+    }
+  }
+}
+
+// ===========================
+// QUOTE side — fixed bg + dark overlay
+// ===========================
+.quote-side {
+  position: relative;
+  padding: 72px 56px;
+  text-align: center;
+  color: $white;
+  @include flex-col-center;
+
+  // ── Fixed background image ──
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center center;
+  // Fallback gradient if no image
+  background-color: #2a2a2a;
+
+  // Dark overlay
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: $overlay-dark;
+    z-index: 0;
+  }
+
+  > * { position: relative; z-index: 1; }
+
+  // Quote form — 2-column grid
+  .quote-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    width: 100%;
+    max-width: 640px;
+    margin-bottom: 1.8rem;
+
+    @media (max-width: 540px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .form-input {
+    width: 100%;
+    padding: 14px 18px;
+    background: $input-bg;
+    border: 1px solid $input-border;
+    color: $white;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 0.86rem;
+    letter-spacing: 0.4px;
+    outline: none;
+    box-sizing: border-box;
+    @include transition(border-color);
+
+    &::placeholder {
+      color: rgba($white, 0.5);
+      font-size: 0.84rem;
+    }
+
+    &:focus {
+      border-color: $input-focus;
+      background: rgba($yellow, 0.06);
+    }
+  }
+
+  .btn-submit {
+    padding: 16px 52px;
+    background: $yellow;
+    color: $dark;
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+    @include transition(background, 0.25s);
+
+    &:hover { background: darken($yellow, 9%); }
+  }
+}
+
+// ===========================
+// Mobile: disable fixed attachment
+// (iOS Safari doesn't support it on non-body elements)
+// ===========================
+@media (max-width: 768px) {
+  .join-side,
+  .quote-side {
+    background-attachment: scroll;
+  }
+}
