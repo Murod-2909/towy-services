@@ -8,6 +8,7 @@ import NotFound from "./pages/NotFound";
 const Home = lazy(() => import("./pages/Home"));
 const About = lazy(() => import("./pages/About"));
 const Services = lazy(() => import("./pages/Services"));
+const SingleService = lazy(() => import("./pages/SingleService"));
 const Gallery = lazy(() => import("./pages/Gallery"));
 const Blog = lazy(() => import("./pages/Blog"));
 const Contacts = lazy(() => import("./pages/Contacts"));
@@ -16,6 +17,7 @@ const app = [
     { path: "/", element: Home },
     { path: "/about", element: About },
     { path: "/services", element: Services },
+    { path: "/services/:slug", element: SingleService },
     { path: "/gallery", element: Gallery },
     { path: "/blog", element: Blog },
     { path: "/contacts", element: Contacts },
