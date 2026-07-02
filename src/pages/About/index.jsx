@@ -49,7 +49,6 @@ function About() {
 
             <Offer number="01" />
 
-            <Stats />
 
             <Team />
 
@@ -73,7 +72,7 @@ function About() {
                 </div>
             </section>
 
-            <JoinQuote joinBg={quoteBg} quoteBg={quoteBg} />
+
         </div>
     );
 }
