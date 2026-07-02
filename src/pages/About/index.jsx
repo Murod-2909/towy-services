@@ -1,10 +1,7 @@
 import { useTranslation } from "react-i18next";
 import YellowBanner from "../../components/YellowBanner";
 import Offer from "../../components/Offer";
-import Stats from "../../components/Stats";
 import Team from "../../components/Team";
-import JoinQuote from "../../components/JoinQuote";
-import quoteBg from "../../assets/image/quote-bg.svg";
 import "./about.scss";
 
 function About() {
