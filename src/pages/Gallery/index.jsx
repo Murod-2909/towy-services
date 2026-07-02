@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import PageBanner from "../../components/PageBanner";
 import "./gallery.scss";
 
@@ -11,71 +12,30 @@ import img6 from "../../assets/image/gallery-6.svg";
 import img7 from "../../assets/image/gallery-7.svg";
 import img8 from "../../assets/image/gallery-8.svg";
 
-const PHOTOS = [
-    {
-        id: 1,
-        src: img1,
-        title: "Sunset Highway Recovery",
-        caption: "A flatbed pickup on a quiet stretch of highway as the sun goes down.",
-    },
-    {
-        id: 2,
-        src: img2,
-        title: "Night Emergency Response",
-        caption: "Beacon lights on scene minutes after an overnight breakdown call.",
-    },
-    {
-        id: 3,
-        src: img3,
-        title: "Motorcycle & Bike Transport",
-        caption: "Specialized tie-downs keep two-wheeled vehicles secure in transit.",
-    },
-    {
-        id: 4,
-        src: img4,
-        title: "Winter Roadside Rescue",
-        caption: "Snow and ice don't slow us down — our trucks run every season.",
-    },
-    {
-        id: 5,
-        src: img5,
-        title: "Downtown Towing",
-        caption: "Navigating tight city streets to clear a vehicle safely.",
-    },
-    {
-        id: 6,
-        src: img6,
-        title: "Accident Recovery",
-        caption: "Fast, careful recovery to get the road clear and your car to the shop.",
-    },
-    {
-        id: 7,
-        src: img7,
-        title: "Meet Our Crew",
-        caption: "Licensed, insured drivers who treat every vehicle like their own.",
-    },
-    {
-        id: 8,
-        src: img8,
-        title: "24/7 Dispatch Center",
-        caption: "Our dispatch team routes the nearest truck the moment you call.",
-    },
-];
+const PHOTO_IMAGES = [img1, img2, img3, img4, img5, img6, img7, img8];
 
 function Gallery() {
+    const { t } = useTranslation();
+    const photos = t("gallery.photos", { returnObjects: true }).map((p, i) => ({
+        id: i,
+        src: PHOTO_IMAGES[i],
+        title: p.title,
+        caption: p.caption,
+    }));
+
     const [active, setActive] = useState(null);
 
     return (
         <div>
             <PageBanner
-                title="Gallery"
-                subtitle="A look at our trucks, crew and roadside rescues in action."
+                title={t("gallery.bannerTitle")}
+                subtitle={t("gallery.pageSubtitle")}
             />
 
             <section className="gallery-section">
                 <div className="container">
                     <div className="gallery-grid">
-                        {PHOTOS.map((photo, i) => (
+                        {photos.map((photo, i) => (
                             <article
                                 className="gallery-card"
                                 key={photo.id}

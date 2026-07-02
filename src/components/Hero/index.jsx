@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import "./hero.scss";
 
 
@@ -8,36 +9,13 @@ import heroBg2 from "../../assets/image/02-2.jpg";
 import heroBg3 from "../../assets/image/top-slider-3.png";
 // ─────────────────────────────────────────────────────────────────────
 
-const slides = [
-    {
-        id: 0,
-        bg: heroBg1,
-        tag: "Fast & Reliable",
-        title: "WE PROVIDE HIGHEST QUALITY",
-        accent: "TOWING SERVICES",
-        sub: "Fast, courteous and inexpensive towing and roadside assistance in San Diego.",
-    },
-    {
-        id: 1,
-        bg: heroBg2,
-        tag: "24/7 Available",
-        title: "ROADSIDE EMERGENCY",
-        accent: "WE'VE GOT YOU COVERED",
-        sub: "Day or night, rain or shine — our team arrives in under 30 minutes anywhere in the city.",
-    },
-    {
-        id: 2,
-        bg: heroBg3,
-        tag: "Professional Team",
-        title: "TRUSTED BY THOUSANDS",
-        accent: "OF HAPPY DRIVERS",
-        sub: "Licensed, insured, and fully equipped to handle any vehicle — cars, trucks, motorcycles.",
-    },
-];
+const slideImages = [heroBg1, heroBg2, heroBg3];
 
 const AUTOPLAY_DELAY = 5500;
 
 function Hero() {
+    const { t } = useTranslation();
+    const slides = t("hero.slides", { returnObjects: true });
     const [current, setCurrent]   = useState(0);
     const [animKey, setAnimKey]   = useState(0);
     const timerRef                = useRef(null);
@@ -57,19 +35,24 @@ function Hero() {
             setAnimKey((k) => k + 1);
         }, AUTOPLAY_DELAY);
         return () => clearInterval(timerRef.current);
-    }, [animKey]);
+    }, [animKey, slides.length]);
 
-    const slide = slides[current];
+    // Keep current slide in range if the translated slide count ever changes
+    useEffect(() => {
+        if (current >= slides.length) setCurrent(0);
+    }, [slides.length, current]);
+
+    const slide = slides[current] || slides[0];
 
     return (
         <section className="hero" id="home">
 
             {/* ── Slides (background images) ── */}
-            {slides.map((s, i) => (
+            {slideImages.map((bg, i) => (
                 <div
-                    key={s.id}
+                    key={i}
                     className={`hero__slide${i === current ? " is-active" : ""}`}
-                    style={{ backgroundImage: `url(${s.bg})` }}
+                    style={{ backgroundImage: `url(${bg})` }}
                     aria-hidden={i !== current}
                 />
             ))}
@@ -89,10 +72,10 @@ function Hero() {
 
                 <div className="hero__actions">
                     <Link to="/services" className="hero__btn hero__btn--primary">
-                        Our Services
+                        {t("hero.ourServices")}
                     </Link>
                     <Link to="/contacts" className="hero__btn hero__btn--outline">
-                        Get a Quote
+                        {t("hero.getQuote")}
                     </Link>
                 </div>
             </div>
@@ -134,7 +117,7 @@ function Hero() {
             <div className="hero__dots" role="tablist" aria-label="Slides">
                 {slides.map((s, i) => (
                     <button
-                        key={s.id}
+                        key={i}
                         className={`hero__dot${i === current ? " is-active" : ""}`}
                         onClick={() => goTo(i)}
                         aria-label={`Slide ${i + 1}`}
@@ -160,6 +143,8 @@ function Hero() {
 }
 
 function InfoBar() {
+    const { t } = useTranslation();
+
     return (
         <div className="info-bar">
 
@@ -173,17 +158,19 @@ function InfoBar() {
                     </svg>
                 </span>
                 <span className="info-bar__text">
-                    <span className="info-bar__label">Response time</span>
-                    <span className="info-bar__value">Less than <strong>30 min</strong> arrival</span>
+                    <span className="info-bar__label">{t("hero.infoBar.responseLabel")}</span>
+                    <span className="info-bar__value">
+                        {t("hero.infoBar.responsePrefix")} <strong>{t("hero.infoBar.responseValue")}</strong> {t("hero.infoBar.responseSuffix")}
+                    </span>
                 </span>
             </div>
 
             {/* Center — phone number (clickable) */}
             <div className="info-bar__cell info-bar__cell--dark" data-aos="fade-up" data-aos-delay="100">
                 <div className="info-bar__phone-wrap">
-                    <span className="info-bar__phone-label">Call us anytime</span>
+                    <span className="info-bar__phone-label">{t("hero.infoBar.callLabel")}</span>
                     <a className="info-bar__phone" href="tel:08004904545">
-                        0 (800) <strong>490 45 45</strong>
+                        {t("hero.infoBar.phonePrefix")} <strong>{t("hero.infoBar.phoneValue")}</strong>
                     </a>
                 </div>
             </div>
@@ -202,8 +189,10 @@ function InfoBar() {
                     </svg>
                 </span>
                 <span className="info-bar__text">
-                    <span className="info-bar__label">Always available</span>
-                    <span className="info-bar__value">Live <strong>24/7</strong> towing service</span>
+                    <span className="info-bar__label">{t("hero.infoBar.alwaysLabel")}</span>
+                    <span className="info-bar__value">
+                        {t("hero.infoBar.alwaysPrefix")} <strong>{t("hero.infoBar.alwaysValue")}</strong> {t("hero.infoBar.alwaysSuffix")}
+                    </span>
                 </span>
             </div>
 

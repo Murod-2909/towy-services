@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import YellowBanner from "../../components/YellowBanner";
 import { SOCIAL_LINKS } from "../../components/icons";
 import "./blog.scss";
@@ -9,52 +10,8 @@ import img4 from "../../assets/image/gallery-4.svg";
 import img5 from "../../assets/image/gallery-5.svg";
 import img6 from "../../assets/image/gallery-8.svg";
 
-const POSTS = [
-    {
-        id: 1,
-        img: img1,
-        date: "12 Jun 2026",
-        title: "Fast Response Towing Service",
-        excerpt: "Our team is available 24/7 to help you get back on the road as quickly as possible.",
-    },
-    {
-        id: 2,
-        img: img2,
-        date: "28 May 2026",
-        title: "Emergency Roadside Assistance",
-        excerpt: "Flat tire, dead battery, or locked out? We have you covered anywhere, anytime.",
-    },
-    {
-        id: 3,
-        img: img3,
-        date: "9 May 2026",
-        title: "What To Do Right After An Accident",
-        excerpt: "A short checklist of the first steps that keep you safe and make the tow and claim smoother.",
-    },
-    {
-        id: 4,
-        img: img4,
-        date: "22 Apr 2026",
-        title: "Choosing The Right Towing Method",
-        excerpt: "Flatbed, wheel-lift or dolly — how we decide which method keeps your vehicle safest.",
-    },
-    {
-        id: 5,
-        img: img5,
-        date: "3 Apr 2026",
-        title: "Winter Driving: Avoiding A Breakdown",
-        excerpt: "Simple maintenance checks that dramatically cut your odds of needing a tow this winter.",
-    },
-    {
-        id: 6,
-        img: img6,
-        date: "15 Mar 2026",
-        title: "How Insurance Towing Claims Work",
-        excerpt: "What documentation you need and how we coordinate directly with your insurance provider.",
-    },
-];
-
-const CATEGORIES = ["Towing Tips", "Safety", "Insurance", "Company News", "Winter Driving"];
+const POST_IMAGES = [img1, img2, img3, img4, img5, img6];
+const POST_DATES = ["12 Jun 2026", "28 May 2026", "9 May 2026", "22 Apr 2026", "3 Apr 2026", "15 Mar 2026"];
 const ARCHIVES = ["July 2026", "June 2026", "May 2026", "April 2026", "March 2026"];
 
 function QuoteIcon() {
@@ -66,16 +23,26 @@ function QuoteIcon() {
 }
 
 function Blog() {
-    const [featured1, featured2, featured3, ...rest] = POSTS;
+    const { t } = useTranslation();
+    const posts = t("blog.posts", { returnObjects: true }).map((p, i) => ({
+        id: i,
+        img: POST_IMAGES[i],
+        date: POST_DATES[i],
+        title: p.title,
+        excerpt: p.excerpt,
+    }));
+    const categories = t("blog.categoryList", { returnObjects: true });
+
+    const [featured1, featured2, featured3, ...rest] = posts;
     const topPosts = [featured1, featured2, featured3];
 
     return (
         <div>
-            <YellowBanner title="Blog" />
+            <YellowBanner title={t("blog.bannerTitle")} />
 
             <section className="blog-top">
                 <div className="container">
-                    <span className="blog-top__label">Top Post</span>
+                    <span className="blog-top__label">{t("blog.topPost")}</span>
                     <div className="blog-top__grid">
                         {topPosts.map((post, i) => (
                             <article
@@ -115,12 +82,8 @@ function Blog() {
                             <span className="blog-quote__icon" aria-hidden="true">
                                 <QuoteIcon />
                             </span>
-                            <p>
-                                "Our dispatch team gets a truck moving within minutes of every
-                                call. That commitment to speed and honesty is what our drivers
-                                are known for across the city."
-                            </p>
-                            <span className="blog-quote__author">Lulu Russell, Operations Director</span>
+                            <p>{t("blog.quote")}</p>
+                            <span className="blog-quote__author">{t("blog.quoteAuthor")}</span>
                         </article>
 
                         <nav className="blog-pagination" aria-label="Pagination">
@@ -130,7 +93,7 @@ function Blog() {
 
                     <aside className="blog-sidebar" data-aos="fade-left">
                         <div className="blog-sidebar__widget">
-                            <h4>Get In Touch</h4>
+                            <h4>{t("blog.getInTouch")}</h4>
                             <div className="blog-sidebar__social">
                                 {SOCIAL_LINKS.map(({ label, href, icon: Icon }) => (
                                     <a key={label} href={href} target="_blank" rel="noopener noreferrer" aria-label={label}>
@@ -141,31 +104,31 @@ function Blog() {
                         </div>
 
                         <div className="blog-sidebar__widget">
-                            <h4>Newsletter</h4>
-                            <p>Subscribe to get our latest updates by email.</p>
+                            <h4>{t("blog.newsletter")}</h4>
+                            <p>{t("blog.newsletterDesc")}</p>
                             <form
                                 className="blog-sidebar__newsletter"
                                 onSubmit={(e) => e.preventDefault()}
                             >
-                                <input type="email" required placeholder="Enter your email" />
-                                <button type="submit">Subscribe</button>
+                                <input type="email" required placeholder={t("blog.enterEmail")} />
+                                <button type="submit">{t("common.subscribe")}</button>
                             </form>
                         </div>
 
                         <div className="blog-sidebar__widget">
-                            <h4>Categories</h4>
+                            <h4>{t("blog.categories")}</h4>
                             <select defaultValue="">
-                                <option value="" disabled>Select category</option>
-                                {CATEGORIES.map((c) => (
+                                <option value="" disabled>{t("blog.selectCategory")}</option>
+                                {categories.map((c) => (
                                     <option key={c} value={c}>{c}</option>
                                 ))}
                             </select>
                         </div>
 
                         <div className="blog-sidebar__widget">
-                            <h4>Recent Posts</h4>
+                            <h4>{t("blog.recentPosts")}</h4>
                             <ul className="blog-sidebar__posts">
-                                {POSTS.slice(0, 3).map((post) => (
+                                {posts.slice(0, 3).map((post) => (
                                     <li key={post.id}>
                                         <img src={post.img} alt={post.title} loading="lazy" decoding="async" />
                                         <div>
@@ -178,9 +141,9 @@ function Blog() {
                         </div>
 
                         <div className="blog-sidebar__widget">
-                            <h4>Archives</h4>
+                            <h4>{t("blog.archives")}</h4>
                             <select defaultValue="">
-                                <option value="" disabled>Select month</option>
+                                <option value="" disabled>{t("blog.selectMonth")}</option>
                                 {ARCHIVES.map((a) => (
                                     <option key={a} value={a}>{a}</option>
                                 ))}

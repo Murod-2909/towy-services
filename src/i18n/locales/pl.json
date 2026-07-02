@@ -1,0 +1,310 @@
+{
+  "common": {
+    "home": "Strona główna",
+    "readMore": "Czytaj więcej",
+    "sendMessage": "Wyślij wiadomość",
+    "subscribe": "Subskrybuj",
+    "applyToday": "Aplikuj dziś",
+    "submitNow": "Wyślij"
+  },
+  "nav": {
+    "home": "Strona główna",
+    "about": "O nas",
+    "services": "Usługi",
+    "gallery": "Galeria",
+    "blog": "Blog",
+    "contacts": "Kontakt"
+  },
+  "header": {
+    "brandTitle": "24/7 TOWY",
+    "brandSubtitle": "Usługi Holownicze"
+  },
+  "notFound": {
+    "code": "404",
+    "title": "Strona nie znaleziona",
+    "desc": "Strona, której szukasz, nie istnieje lub została przeniesiona.",
+    "backHome": "Wróć do strony głównej"
+  },
+  "hero": {
+    "slides": [
+      {
+        "tag": "Szybko i niezawodnie",
+        "title": "ZAPEWNIAMY NAJWYŻSZĄ JAKOŚĆ",
+        "accent": "USŁUG HOLOWNICZYCH",
+        "sub": "Szybka, uprzejma i niedroga pomoc drogowa i holowanie w San Diego."
+      },
+      {
+        "tag": "Dostępni 24/7",
+        "title": "AWARIA NA DRODZE",
+        "accent": "MAMY CIĘ POD OPIEKĄ",
+        "sub": "W dzień i w nocy, w deszczu i w słońcu — nasz zespół dociera w mniej niż 30 minut w dowolne miejsce w mieście."
+      },
+      {
+        "tag": "Profesjonalny zespół",
+        "title": "ZAUFAŁY NAM TYSIĄCE",
+        "accent": "ZADOWOLONYCH KIEROWCÓW",
+        "sub": "Licencjonowani, ubezpieczeni i w pełni wyposażeni do obsługi każdego pojazdu — samochodów, ciężarówek, motocykli."
+      }
+    ],
+    "ourServices": "Nasze usługi",
+    "getQuote": "Wycena",
+    "infoBar": {
+      "responseLabel": "Czas reakcji",
+      "responsePrefix": "Mniej niż",
+      "responseValue": "30 minut",
+      "responseSuffix": "przyjazd",
+      "callLabel": "Zadzwoń o każdej porze",
+      "phonePrefix": "0 (800)",
+      "phoneValue": "490 45 45",
+      "alwaysLabel": "Zawsze dostępni",
+      "alwaysPrefix": "Działamy",
+      "alwaysValue": "24/7",
+      "alwaysSuffix": "usługi holownicze"
+    }
+  },
+  "offer": {
+    "eyebrow": "Skuteczny transport na lawecie",
+    "heading": "CO",
+    "headingStrong": "OFERUJEMY",
+    "desc": "Zapewniamy szybkie, uprzejme i niedrogie usługi holownicze w Nowym Jorku. Jesteśmy w pełni ubezpieczeni i działamy od 1986 roku. Jesteśmy gotowi reagować na wszelkie awarie pojazdów 24 godziny na dobę, siedem dni w tygodniu.",
+    "features": [
+      { "prefix": "Ponad", "strong": "30 lat doświadczenia", "suffix": "" },
+      { "prefix": "Krótki czas przyjazdu —", "strong": "30 minut lub mniej", "suffix": "" },
+      { "prefix": "Uczciwe, konkurencyjne ceny —", "strong": "bez ukrytych opłat", "suffix": "" },
+      { "prefix": "Przyjazna i", "strong": "profesjonalna obsługa", "suffix": "" },
+      { "prefix": "Dostępni", "strong": "24 godziny", "middle": "na dobę,", "strong2": "7 dni", "suffix": "w tygodniu" }
+    ]
+  },
+  "stats": {
+    "experience": "Lat doświadczenia",
+    "offices": "Biur na świecie",
+    "vehicles": "Odholowanych pojazdów",
+    "workers": "Pracowników w zespole"
+  },
+  "services": {
+    "eyebrow": "Awaryjna pomoc drogowa",
+    "heading": "NASZE",
+    "headingStrong": "USŁUGI",
+    "pageSubtitle": "Awaryjne holowanie i pomoc drogowa w każdej sytuacji.",
+    "howItWorks": "Jak to działa",
+    "processHeading": "OD ZGŁOSZENIA DO",
+    "processHeadingStrong": "POMOCY NA DRODZE",
+    "steps": [
+      { "title": "Zadzwoń do dyspozytora", "desc": "Skontaktuj się z naszą całodobową linią i podaj lokalizację oraz dane pojazdu." },
+      { "title": "Zlokalizujemy Cię", "desc": "System GPS kieruje do Ciebie najbliższą dostępną lawetę." },
+      { "title": "Przyjedziemy szybko", "desc": "Średni czas przyjazdu to mniej niż 30 minut, w dzień i w nocy." },
+      { "title": "Bezpieczna dostawa", "desc": "Twój pojazd zostanie odholowany bez uszkodzeń do wybranego miejsca." }
+    ],
+    "items": {
+      "car-towing": {
+        "title": "Holowanie samochodów",
+        "desc": "Zapewniamy szybkie i bezpieczne holowanie samochodów w całym mieście. Nasze lawety gwarantują, że Twój pojazd dotrze na miejsce bez dodatkowych uszkodzeń.",
+        "description": "Niezależnie od tego, czy utknąłeś na autostradzie, czy pod własnym domem, nasze lawety i holowniki podniosą Twój samochód bez rysowania go. Każdy kierowca w naszym zespole jest przeszkolony, aby prawidłowo zabezpieczyć pojazd odpowiednio do jego marki i napędu — samochody z napędem na przód, na tył i na wszystkie koła są holowane we właściwy sposób.",
+        "checklist": [
+          "Lawety i holowniki do każdego typu pojazdu",
+          "Kierowcy przeszkoleni w bezpiecznych dla napędu metodach holowania",
+          "Dostępni w całym mieście 24 godziny na dobę",
+          "Przejrzyste ceny bez ukrytych opłat"
+        ],
+        "extra": "Większość zgłoszeń odbieramy w mniej niż minutę, a nasz system dyspozytorski automatycznie kieruje do Ciebie najbliższą dostępną lawetę. Od prostego przestawienia po holowanie na duże odległości — zajmujemy się formalnościami i logistyką, więc wystarczy jeden telefon."
+      },
+      "hail-damage": {
+        "title": "Szkody gradowe",
+        "desc": "Złapała Cię burza? Natychmiast reagujemy na szkody gradowe i holujemy pojazd do najbliższego certyfikowanego warsztatu.",
+        "description": "Silna burza gradowa może w kilka minut uniemożliwić jazdę samochodem. Traktujemy zgłoszenia szkód pogodowych priorytetowo i wysyłamy najbliższą lawetę zaraz po Twoim zgłoszeniu, aby zabrać pojazd z drogi i chronić go przed dalszym działaniem żywiołu.",
+        "checklist": [
+          "Priorytetowy dojazd podczas aktywnych burz",
+          "Ostrożny załadunek zapobiegający dalszym uszkodzeniom nadwozia",
+          "Bezpośredni transport do certyfikowanych warsztatów",
+          "Pomoc w dokumentowaniu szkód do celów ubezpieczeniowych"
+        ],
+        "extra": "Współpracujemy z większością głównych ubezpieczycieli, więc gdy tylko Twój pojazd znajdzie się w bezpiecznym miejscu, pomożemy od razu rozpocząć proces likwidacji szkody."
+      },
+      "flood-insurance": {
+        "title": "Ubezpieczenie od powodzi",
+        "desc": "Twój pojazd ucierpiał w wyniku powodzi? Nasz zespół współpracuje z wszystkimi głównymi ubezpieczycielami i zajmuje się holowaniem oraz dokumentacją.",
+        "description": "Woda powodziowa może spowodować szkody, które nie są od razu widoczne, dlatego zalany pojazd należy jak najszybciej przetransportować i sprawdzić. Holujemy pojazdy dotknięte powodzią w bezpieczne, suche miejsce i możemy bezpośrednio współpracować z Twoim ubezpieczycielem w Twoim imieniu.",
+        "checklist": [
+          "Bezpieczne usuwanie pojazdów z zalanych dróg i parkingów",
+          "Dokumentacja fotograficzna do zgłoszenia szkody",
+          "Współpraca z głównymi ubezpieczycielami",
+          "Transport do oceny lub naprawy"
+        ],
+        "extra": "Ponieważ roszczenia dotyczące szkód powodziowych często wymagają szczegółowej dokumentacji, nasi kierowcy fotografują poziom wody i stan pojazdu na miejscu przed holowaniem, oszczędzając Twój czas w dalszym procesie."
+      },
+      "accident-insurance": {
+        "title": "Ubezpieczenie wypadkowe",
+        "desc": "Po kolizji ostatnią rzeczą, jakiej potrzebujesz, jest dodatkowy stres. Współpracujemy z Twoim ubezpieczycielem i szybko dostarczamy pojazd do warsztatu.",
+        "description": "Minuty po kolizji są wystarczająco stresujące, by dodatkowo martwić się o usunięcie pojazdu z drogi. Nasi kierowcy szybko docierają na miejsce, bezpiecznie usuwają pojazd i mogą dostarczyć go bezpośrednio do wybranego warsztatu lub punktu odbioru ubezpieczyciela.",
+        "checklist": [
+          "Szybka reakcja na miejsce kolizji",
+          "Bezpieczne usunięcie pojazdu z drogi",
+          "Bezpośrednia współpraca z rzeczoznawcą ubezpieczeniowym",
+          "Dostawa do wybranego przez Ciebie warsztatu"
+        ],
+        "extra": "Jeśli nie wiesz, do kogo zadzwonić najpierw — zadzwoń do nas. Poprowadzimy Cię przez kolejne kroki, podczas gdy nasza laweta już jest w drodze."
+      },
+      "fire-insurance": {
+        "title": "Ubezpieczenie od pożaru",
+        "desc": "Szkody powypożarowe wymagają natychmiastowej reakcji. Bezpiecznie zabezpieczamy i holujemy Twój pojazd, podczas gdy Ty zajmujesz się zgłoszeniem szkody.",
+        "description": "Pożar pojazdu to jedna z najniebezpieczniejszych sytuacji drogowych. Gdy tylko straż pożarna zakończy działania na miejscu, nasz zespół bezpiecznie zabezpiecza i usuwa pojazd, aby spalony samochód nie blokował ruchu ani nie zalegał na Twojej posesji.",
+        "checklist": [
+          "Współpraca ze strażą pożarną i służbami ratunkowymi na miejscu",
+          "Bezpieczne obchodzenie się z pojazdami uszkodzonymi przez ogień",
+          "Możliwość przechowania na czas rozpatrywania szkody",
+          "Pełna dokumentacja wspierająca Twoje zgłoszenie szkody"
+        ],
+        "extra": "Wiemy, że pożar pojazdu to trudne przeżycie. Nasi dyspozytorzy pozostają z Tobą na linii do przyjazdu lawety, a nasi kierowcy zajmują się resztą, abyś mógł skupić się na tym, co ważne."
+      },
+      "motorcycle-towing": {
+        "title": "Holowanie motocykli",
+        "desc": "Motocykle wymagają szczególnej ostrożności podczas holowania. Nasz przeszkolony zespół używa odpowiedniego sprzętu, aby przewieźć Twój motocykl bez rys i uszkodzeń.",
+        "description": "Motocykla nie można holować tak jak samochodu — niewłaściwy sprzęt lub niedoświadczony kierowca łatwo może zarysować lakier lub uszkodzić ramę. Nasze zespoły używają specjalnych klinów pod koła i miękkich pasów mocujących do motocykli, dzięki czemu każdy motocykl jedzie bezpiecznie zabezpieczony przez całą trasę.",
+        "checklist": [
+          "Lawety i mocowania przeznaczone specjalnie do motocykli",
+          "Miękkie pasy, które nie zostawiają śladów na lakierze i chromie",
+          "Przeszkolony zespół z doświadczeniem w obsłudze motocykli każdego rozmiaru",
+          "Dostępne przy awariach, wypadkach i transporcie na duże odległości"
+        ],
+        "extra": "Niezależnie od tego, czy to krótki przejazd do Twojego stałego mechanika, czy dłuższa trasa po awarii w podróży — Twój motocykl zostanie załadowany, zabezpieczony i rozładowany tak, jakby był naszym własnym."
+      }
+    }
+  },
+  "about": {
+    "bannerTitle": "O nas",
+    "pageSubtitle": "Trzy dekady szybkiego i uczciwego holowania oraz pomocy drogowej.",
+    "offerNumber": "01",
+    "whyChooseUs": "Dlaczego my",
+    "valuesHeading": "CO NAS",
+    "valuesHeadingStrong": "WYRÓŻNIA",
+    "values": [
+      { "title": "Certyfikowani i ubezpieczeni", "desc": "Każdy kierowca posiada licencję, jest zweryfikowany i w pełni ubezpieczony, dzięki czemu Twój pojazd jest zawsze w bezpiecznych rękach." },
+      { "title": "Nowoczesna flota", "desc": "Nasze lawety i holowniki są regularnie serwisowane, co zapewnia szybki czas reakcji i holowanie bez uszkodzeń." },
+      { "title": "Szybka reakcja", "desc": "Dyspozytornia działa 24/7 z lawetami kierowanymi przez GPS, a średni czas przyjazdu to mniej niż 30 minut." },
+      { "title": "Przejrzyste ceny", "desc": "Żadnych ukrytych opłat — wycenę otrzymujesz jeszcze zanim laweta wyjedzie z bazy." }
+    ]
+  },
+  "team": {
+    "members": [
+      {
+        "name": "Lulu Russell",
+        "role": "Dyrektor operacyjny",
+        "quote": "Nasza dyspozytornia wysyła lawetę w ciągu kilku minut od każdego zgłoszenia. To zaangażowanie w szybkość i uczciwość jest tym, co wyróżnia naszych kierowców w całym mieście."
+      },
+      {
+        "name": "James Cooper",
+        "role": "Główny technik",
+        "quote": "Każda laweta w naszej flocie jest sprawdzana przed każdą zmianą. Wolimy opóźnić zlecenie o pięć minut, niż ryzykować uszkodzenie pojazdu klienta."
+      },
+      {
+        "name": "Maria Chen",
+        "role": "Kierownik obsługi klienta",
+        "quote": "Ludzie dzwonią do nas w swój najgorszy dzień na drodze. Naszym zadaniem jest sprawić, by reszta tego dnia była jak najłatwiejsza — od pierwszego telefonu po dostawę pojazdu."
+      }
+    ]
+  },
+  "joinQuote": {
+    "joinHeading": "Dołącz",
+    "joinHeadingStrong": "do naszego zespołu",
+    "joinSub": "Szybcy i uprzejmi specjaliści",
+    "joinText": "Zawsze szukamy zaangażowanych, profesjonalnych kierowców i operatorów, którzy z dumą świadczą szybkie, niezawodne i uprzejme usługi holownicze. Jeśli chcesz pomagać ludziom w trudnych sytuacjach, chętnie powitamy Cię w zespole.",
+    "quoteHeading": "Poproś o",
+    "quoteHeadingStrong": "wycenę",
+    "quoteSub": "Najlepsza oferta",
+    "fullName": "Imię i nazwisko",
+    "phoneNumber": "Numer telefonu",
+    "towFrom": "Skąd holować",
+    "towTo": "Dokąd dostarczyć",
+    "vehicleType": "Typ pojazdu"
+  },
+  "blogCarousel": {
+    "heading": "Nasz",
+    "headingStrong": "Blog",
+    "sub": "Holowanie wszędzie i o każdej porze",
+    "posts": [
+      { "title": "Szybka usługa holownicza", "excerpt": "Nasz zespół jest dostępny 24/7, aby jak najszybciej pomóc Ci wrócić na drogę." },
+      { "title": "Wybór właściwej metody holowania", "excerpt": "Laweta, holownik czy wózek — jak decydujemy, która metoda jest najbezpieczniejsza dla Twojego pojazdu." },
+      { "title": "Holowanie motocykli zrobione dobrze", "excerpt": "Dlaczego motocykle potrzebują specjalistycznego sprzętu i przeszkolonego zespołu przy każdym holowaniu." },
+      { "title": "Co robić zaraz po wypadku", "excerpt": "Krótka lista pierwszych kroków, które zapewnią bezpieczeństwo i ułatwią holowanie." },
+      { "title": "Awaryjna pomoc drogowa", "excerpt": "Przebita opona, rozładowany akumulator czy zatrzaśnięte kluczyki? Pomożemy wszędzie i o każdej porze." }
+    ]
+  },
+  "mapFaq": {
+    "heading": "Najczęściej zadawane",
+    "headingStrong": "pytania",
+    "sub": "Przewóz pojazdów każdego typu",
+    "mapLabel": "Liczba naszych biur",
+    "items": [
+      { "q": "Jak odzyskać swój samochód?", "a": "Skontaktuj się z naszym centrum dyspozytorskim, podając dane pojazdu i pokwitowanie holowania. Przeprowadzimy Cię przez proces odbioru i poinformujemy o wymaganych opłatach i dokumentach." },
+      { "q": "Ile czasu mam na odebranie swoich rzeczy?", "a": "Masz do 30 dni na odebranie rzeczy osobistych z pojazdu. Po tym okresie przedmioty mogą zostać zutylizowane zgodnie z lokalnymi przepisami." },
+      { "q": "Dlaczego odholowano mój samochód?", "a": "Pojazdy są holowane z różnych powodów, w tym nielegalnego parkowania, blokowania ruchu, przeterminowanej rejestracji lub na żądanie właściciela nieruchomości bądź organów ścigania." },
+      { "q": "Czym jest holowanie grzecznościowe / holowanie godzinowe?", "a": "Holowanie grzecznościowe to bezpłatne holowanie na krótki dystans oferowane w określonych sytuacjach. Holowanie godzinowe oznacza, że płacisz tylko za rzeczywisty czas pracy naszej lawety." },
+      { "q": "Dlaczego na moim pojeździe jest zastaw?", "a": "Zastaw jest nakładany, gdy opłaty za przechowywanie i holowanie pozostają nieuregulowane. To proces prawny, który pozwala nam odzyskać koszty. Skontaktuj się z nami, aby ustalić płatność i zdjąć zastaw." }
+    ]
+  },
+  "gallery": {
+    "bannerTitle": "Galeria",
+    "pageSubtitle": "Nasze lawety, zespół i akcje ratunkowe na drodze w akcji.",
+    "photos": [
+      { "title": "Odzyskiwanie na autostradzie o zachodzie słońca", "caption": "Laweta na spokojnym odcinku autostrady o zachodzie słońca." },
+      { "title": "Nocna interwencja awaryjna", "caption": "Światła pulsujące na miejscu kilka minut po nocnym zgłoszeniu awarii." },
+      { "title": "Transport motocykli i rowerów", "caption": "Specjalistyczne mocowania zapewniają bezpieczny transport pojazdów jednośladowych." },
+      { "title": "Zimowa pomoc drogowa", "caption": "Śnieg i lód nas nie zatrzymują — nasze lawety jeżdżą przez cały rok." },
+      { "title": "Holowanie w centrum miasta", "caption": "Poruszanie się wąskimi ulicami miasta, aby bezpiecznie usunąć pojazd." },
+      { "title": "Odzyskiwanie po wypadku", "caption": "Szybkie i staranne odzyskiwanie, aby oczyścić drogę i dostarczyć samochód do warsztatu." },
+      { "title": "Poznaj nasz zespół", "caption": "Licencjonowani, ubezpieczeni kierowcy, którzy traktują każdy pojazd jak własny." },
+      { "title": "Centrum dyspozytorskie 24/7", "caption": "Nasza dyspozytornia kieruje najbliższą lawetę w chwili Twojego zgłoszenia." }
+    ]
+  },
+  "blog": {
+    "bannerTitle": "Blog",
+    "pageSubtitle": "Porady dotyczące holowania, poradniki bezpieczeństwa i wiadomości od zespołu 24/7 Towy.",
+    "topPost": "Najlepszy wpis",
+    "getInTouch": "Skontaktuj się",
+    "newsletter": "Newsletter",
+    "newsletterDesc": "Zapisz się, aby otrzymywać nasze najnowsze aktualizacje na email.",
+    "enterEmail": "Wpisz swój email",
+    "categories": "Kategorie",
+    "selectCategory": "Wybierz kategorię",
+    "categoryList": ["Porady dotyczące holowania", "Bezpieczeństwo", "Ubezpieczenie", "Wiadomości firmowe", "Jazda zimą"],
+    "recentPosts": "Ostatnie wpisy",
+    "archives": "Archiwum",
+    "selectMonth": "Wybierz miesiąc",
+    "quote": "„Nasza dyspozytornia wysyła lawetę w ciągu kilku minut od każdego zgłoszenia. To zaangażowanie w szybkość i uczciwość jest tym, co wyróżnia naszych kierowców w całym mieście.”",
+    "quoteAuthor": "Lulu Russell, Dyrektor operacyjny",
+    "posts": [
+      { "title": "Szybka usługa holownicza", "excerpt": "Nasz zespół jest dostępny 24/7, aby jak najszybciej pomóc Ci wrócić na drogę." },
+      { "title": "Awaryjna pomoc drogowa", "excerpt": "Przebita opona, rozładowany akumulator czy zatrzaśnięte kluczyki? Pomożemy wszędzie i o każdej porze." },
+      { "title": "Co robić zaraz po wypadku", "excerpt": "Krótka lista pierwszych kroków, które zapewnią bezpieczeństwo i ułatwią holowanie oraz zgłoszenie szkody." },
+      { "title": "Wybór właściwej metody holowania", "excerpt": "Laweta, holownik czy wózek — jak decydujemy, która metoda jest najbezpieczniejsza dla Twojego pojazdu." },
+      { "title": "Jazda zimą: jak uniknąć awarii", "excerpt": "Proste kontrole techniczne, które znacznie zmniejszają ryzyko konieczności holowania tej zimy." },
+      { "title": "Jak działają roszczenia ubezpieczeniowe przy holowaniu", "excerpt": "Jakie dokumenty są potrzebne i jak współpracujemy bezpośrednio z Twoim ubezpieczycielem." }
+    ]
+  },
+  "contacts": {
+    "bannerTitle": "Kontakt",
+    "formHeading": "Formularz",
+    "formHeadingStrong": "kontaktowy",
+    "infoHeading": "Dane",
+    "infoHeadingStrong": "kontaktowe",
+    "fullName": "Imię i nazwisko",
+    "subject": "Temat",
+    "phoneNumber": "Numer telefonu",
+    "email": "Email",
+    "message": "Wiadomość",
+    "address": "2551 Alfred Drive, Brooklyn, NY",
+    "hours": "24 godziny na dobę, 7 dni w tygodniu"
+  },
+  "footer": {
+    "registerNewsletter": "Zapisz się do",
+    "registerNewsletterStrong": "naszego newslettera",
+    "enterEmail": "Wpisz adres e-mail",
+    "getLatestNews": "Otrzymuj",
+    "getLatestNewsStrong": "najnowsze wiadomości firmowe",
+    "desc": "Szybka, uprzejma i niedroga pomoc drogowa i holowanie, dostępne przez całą dobę, każdego dnia roku.",
+    "usefulLinks": "Przydatne linki",
+    "getInTouch": "Skontaktuj się",
+    "latestPosts": "Ostatnie wpisy",
+    "rights": "Wszelkie prawa zastrzeżone"
+  }
+}

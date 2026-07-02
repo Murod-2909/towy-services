@@ -1,38 +1,22 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import YellowBanner from "../../components/YellowBanner";
 import Map from "../../components/Map";
 import { PinIcon, MailIcon, PhoneIcon, ClockIcon } from "../../components/icons";
 import "./contacts.scss";
 
-const CONTACT_INFO = [
-    {
-        id: "address",
-        icon: PinIcon,
-        value: "2551 Alfred Drive, Brooklyn, NY",
-    },
-    {
-        id: "email",
-        icon: MailIcon,
-        value: "support@247towy.com",
-        href: "mailto:support@247towy.com",
-    },
-    {
-        id: "phone",
-        icon: PhoneIcon,
-        value: "0 (800) 490 45 45",
-        href: "tel:08004904545",
-    },
-    {
-        id: "hours",
-        icon: ClockIcon,
-        value: "24 hours a day, 7 days a week",
-    },
-];
-
 const EMPTY_FORM = { fullName: "", subject: "", phone: "", email: "", message: "" };
 
 function Contacts() {
+    const { t } = useTranslation();
     const [form, setForm] = useState(EMPTY_FORM);
+
+    const CONTACT_INFO = [
+        { id: "address", icon: PinIcon, value: t("contacts.address") },
+        { id: "email", icon: MailIcon, value: "support@247towy.com", href: "mailto:support@247towy.com" },
+        { id: "phone", icon: PhoneIcon, value: "0 (800) 490 45 45", href: "tel:08004904545" },
+        { id: "hours", icon: ClockIcon, value: t("contacts.hours") },
+    ];
 
     const handleChange = (e) =>
         setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -44,7 +28,7 @@ function Contacts() {
 
     return (
         <div>
-            <YellowBanner title="Contacts" />
+            <YellowBanner title={t("contacts.bannerTitle")} />
 
             <section className="contacts-map">
                 <Map minHeight={480} />
@@ -54,7 +38,7 @@ function Contacts() {
                 <div className="container contacts-body__inner">
                     <div className="contacts-body__form" data-aos="fade-right">
                         <h2>
-                            Contact <strong>Form</strong>
+                            {t("contacts.formHeading")} <strong>{t("contacts.formHeadingStrong")}</strong>
                         </h2>
                         <div className="contacts-body__deco" aria-hidden="true">
                             <span /><span /><span /><span />
@@ -65,7 +49,7 @@ function Contacts() {
                                 <input
                                     type="text"
                                     name="fullName"
-                                    placeholder="Full name"
+                                    placeholder={t("contacts.fullName")}
                                     value={form.fullName}
                                     onChange={handleChange}
                                     required
@@ -73,7 +57,7 @@ function Contacts() {
                                 <input
                                     type="text"
                                     name="subject"
-                                    placeholder="Subject"
+                                    placeholder={t("contacts.subject")}
                                     value={form.subject}
                                     onChange={handleChange}
                                 />
@@ -82,14 +66,14 @@ function Contacts() {
                                 <input
                                     type="tel"
                                     name="phone"
-                                    placeholder="Phone number"
+                                    placeholder={t("contacts.phoneNumber")}
                                     value={form.phone}
                                     onChange={handleChange}
                                 />
                                 <input
                                     type="email"
                                     name="email"
-                                    placeholder="Email"
+                                    placeholder={t("contacts.email")}
                                     value={form.email}
                                     onChange={handleChange}
                                     required
@@ -97,18 +81,18 @@ function Contacts() {
                             </div>
                             <textarea
                                 name="message"
-                                placeholder="Message"
+                                placeholder={t("contacts.message")}
                                 rows="6"
                                 value={form.message}
                                 onChange={handleChange}
                             />
-                            <button type="submit">Send Message</button>
+                            <button type="submit">{t("common.sendMessage")}</button>
                         </form>
                     </div>
 
                     <div className="contacts-body__info" data-aos="fade-left">
                         <h2>
-                            Contact <strong>Info</strong>
+                            {t("contacts.infoHeading")} <strong>{t("contacts.infoHeadingStrong")}</strong>
                         </h2>
                         <div className="contacts-body__deco" aria-hidden="true">
                             <span /><span /><span /><span />

@@ -1,4 +1,5 @@
 import { Navigate, useParams } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import PageBanner from "../../components/PageBanner";
 import JoinQuote from "../../components/JoinQuote";
 import { getServiceById } from "../../data/services";
@@ -22,36 +23,43 @@ function CheckIcon() {
 function SingleService() {
     const { slug } = useParams();
     const service = getServiceById(slug);
+    const { t } = useTranslation();
 
     if (!service) {
         return <Navigate to="/404" replace />;
     }
 
+    const title = t(`services.items.${slug}.title`);
+    const desc = t(`services.items.${slug}.desc`);
+    const description = t(`services.items.${slug}.description`);
+    const extra = t(`services.items.${slug}.extra`);
+    const checklist = t(`services.items.${slug}.checklist`, { returnObjects: true });
+
     return (
         <div>
-            <PageBanner title={service.title} subtitle={service.desc} />
+            <PageBanner title={title} subtitle={desc} />
 
             <section className="single-service">
                 <div className="container single-service__inner">
                     <div className="single-service__image" data-aos="fade-right">
                         <img
                             src={service.image}
-                            alt={service.title}
+                            alt={title}
                             loading="lazy"
                             decoding="async"
                         />
                     </div>
 
                     <div className="single-service__content" data-aos="fade-left">
-                        <h2>{service.title}</h2>
+                        <h2>{title}</h2>
                         <div className="single-service__deco" aria-hidden="true">
                             <span /><span /><span /><span />
                         </div>
 
-                        <p>{service.description}</p>
+                        <p>{description}</p>
 
                         <ul className="single-service__list">
-                            {service.checklist.map((item) => (
+                            {checklist.map((item) => (
                                 <li key={item}>
                                     <span className="single-service__check" aria-hidden="true">
                                         <CheckIcon />
@@ -64,7 +72,7 @@ function SingleService() {
                 </div>
 
                 <div className="container">
-                    <p className="single-service__extra">{service.extra}</p>
+                    <p className="single-service__extra">{extra}</p>
                 </div>
             </section>
 

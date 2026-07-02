@@ -1,0 +1,62 @@
+@use "../../assets/style/global" as *;
+
+.not-found {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: $bg-color;
+  padding-top: 94px;
+
+  &__inner {
+    text-align: center;
+    padding: 3rem 20px;
+  }
+
+  &__code {
+    display: block;
+    font-size: clamp(4rem, 12vw, 8rem);
+    font-weight: 900;
+    line-height: 1;
+    color: $primary-color;
+    opacity: 0.85;
+  }
+
+  &__title {
+    font-size: clamp(1.5rem, 3vw, 2.2rem);
+    font-weight: 800;
+    color: $secondary-color;
+    margin: 0.8rem 0 0.6rem;
+  }
+
+  &__desc {
+    font-size: 0.95rem;
+    color: rgba($secondary-color, 0.6);
+    max-width: 420px;
+    margin: 0 auto 2rem;
+  }
+
+  &__btn {
+    display: inline-block;
+    padding: 0.9rem 2.2rem;
+    background: $secondary-color;
+    color: $yellow-color;
+    font-weight: 800;
+    font-size: 0.85rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    border-radius: 4px;
+    transition: $transition;
+
+    &:hover {
+      background: $primary-color;
+      color: $white;
+    }
+  }
+}
+
+@media (max-width: $bp-sm) {
+  .not-found {
+    padding-top: 68px;
+  }
+}

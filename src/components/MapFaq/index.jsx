@@ -1,39 +1,14 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import './MapFaq.scss';
 import Map from '../Map';
 
-const FAQS = [
-    {
-        id: 1,
-        q: 'How do I get my car back?',
-        a: 'Contact our dispatch center with your vehicle information and tow receipt. We will guide you through the release process and let you know the required fees and documents.',
-    },
-    {
-        id: 2,
-        q: 'How long do I have to get my stuff?',
-        a: 'You have up to 30 days to retrieve personal belongings from your vehicle. After that period, items may be disposed of in accordance with local regulations.',
-    },
-    {
-        id: 3,
-        q: 'Why did you tow my car?',
-        a: 'Vehicles are towed for various reasons including illegal parking, blocking traffic, expired registration, or at the request of a property owner or law enforcement.',
-    },
-    {
-        id: 4,
-        q: 'What is a courtesy tow / tow by the hour?',
-        a: 'A courtesy tow is a complimentary short-distance tow offered in certain situations. Tow by the hour means you pay only for the actual time our truck is in use for your job.',
-    },
-    {
-        id: 5,
-        q: 'Why is there a lien on my vehicle?',
-        a: 'A lien is placed when storage and towing fees remain unpaid. This is a legal process that allows us to recover costs. Contact us to arrange payment and clear the lien.',
-    },
-];
-
 // ── Main component ──
 const MapFaq = () => {
-    const [openId, setOpenId] = useState(null);
-    const toggle = (id) => setOpenId((prev) => (prev === id ? null : id));
+    const { t } = useTranslation();
+    const faqs = t('mapFaq.items', { returnObjects: true });
+    const [openIndex, setOpenIndex] = useState(null);
+    const toggle = (i) => setOpenIndex((prev) => (prev === i ? null : i));
 
     return (
         <section className="mapfaq-section">
@@ -42,26 +17,26 @@ const MapFaq = () => {
             <div className="map-side" data-aos="fade-right">
                 <Map />
                 <p className="map-label">
-                    <span className="dot" />– Number of our offices
+                    <span className="dot" />– {t('mapFaq.mapLabel')}
                 </p>
             </div>
 
             {/* RIGHT: FAQ accordion */}
             <div className="faq-side" data-aos="fade-left">
                 <div className="faq-heading">
-                    <h2>General <strong>FAQ's</strong></h2>
-                    <p>Relocation of any vehicle type</p>
+                    <h2>{t('mapFaq.heading')} <strong>{t('mapFaq.headingStrong')}</strong></h2>
+                    <p>{t('mapFaq.sub')}</p>
                 </div>
                 <div className="faq-divider" />
 
                 <div className="faq-list">
-                    {FAQS.map((item) => {
-                        const isOpen = openId === item.id;
+                    {faqs.map((item, i) => {
+                        const isOpen = openIndex === i;
                         return (
-                            <div className="faq-item" key={item.id}>
+                            <div className="faq-item" key={i}>
                                 <button
                                     className="faq-question"
-                                    onClick={() => toggle(item.id)}
+                                    onClick={() => toggle(i)}
                                     aria-expanded={isOpen}
                                 >
                                     <span>{item.q}</span>
