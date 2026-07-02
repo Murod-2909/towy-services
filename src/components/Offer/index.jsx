@@ -46,7 +46,7 @@ function Offer({ number }) {
             <div className="container offer__inner">
 
                 {/* ── Left: truck image ── */}
-                <div className="offer__visual">
+                <div className="offer__visual" data-aos="fade-right">
                     <div className="offer__circle" aria-hidden="true" />
                     <div className="offer__city"   aria-hidden="true" />
                     <img
@@ -61,7 +61,7 @@ function Offer({ number }) {
                 </div>
 
                 {/* ── Right: content ── */}
-                <div className="offer__content">
+                <div className="offer__content" data-aos="fade-left">
                     {number && <span className="offer__number" aria-hidden="true">{number}</span>}
                     <span className="offer__eyebrow">Effective Flatbed Transportation</span>
 
@@ -82,8 +82,13 @@ function Offer({ number }) {
 
                     {/* Feature checklist */}
                     <ul className="offer__list">
-                        {features.map((f) => (
-                            <li key={f.id} className="offer__item">
+                        {features.map((f, i) => (
+                            <li
+                                key={f.id}
+                                className="offer__item"
+                                data-aos="fade-up"
+                                data-aos-delay={100 + i * 80}
+                            >
                                 <span className="offer__check" aria-hidden="true">
                                     <CheckIcon />
                                 </span>

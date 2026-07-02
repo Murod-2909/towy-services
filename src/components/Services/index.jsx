@@ -1,38 +1,14 @@
-import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import "./services.scss";
 import { SERVICES } from "../../data/services";
 
 function Services() {
-    const gridRef = useRef(null);
-
-    // Intersection Observer — cards appear on scroll
-    useEffect(() => {
-        const cards = gridRef.current?.querySelectorAll(".services__card");
-        if (!cards) return;
-
-        const observer = new IntersectionObserver(
-            (entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add("is-visible");
-                        observer.unobserve(entry.target);
-                    }
-                });
-            },
-            { threshold: 0.15 }
-        );
-
-        cards.forEach((card) => observer.observe(card));
-        return () => observer.disconnect();
-    }, []);
-
     return (
         <section className="services" id="services">
             <div className="container">
 
                 {/* ── Section header ── */}
-                <div className="services__header">
+                <div className="services__header" data-aos="fade-up">
                     <span className="services__eyebrow">Emergency Roadside Assistance</span>
                     <h2 className="services__heading">
                         OUR <strong>SERVICES</strong>
@@ -43,9 +19,15 @@ function Services() {
                 </div>
 
                 {/* ── Cards grid ── */}
-                <div className="services__grid" ref={gridRef}>
-                    {SERVICES.map((s) => (
-                        <Link key={s.id} to={`/services/${s.id}`} className="services__card">
+                <div className="services__grid">
+                    {SERVICES.map((s, i) => (
+                        <Link
+                            key={s.id}
+                            to={`/services/${s.id}`}
+                            className="services__card"
+                            data-aos="fade-up"
+                            data-aos-delay={(i % 3) * 100}
+                        >
                             <span className="services__icon" aria-hidden="true">
                                 <img
                                     src={s.icon}

@@ -64,7 +64,8 @@ function StatItem({ value, suffix, label, icon, active, delay }) {
     return (
         <div
             className="stats__item"
-            style={{ animationDelay: `${delay}ms` }}
+            data-aos="zoom-in"
+            data-aos-delay={delay}
         >
             <span className="stats__icon" aria-hidden="true">
                 {icon}

@@ -39,7 +39,7 @@ const MapFaq = () => {
         <section className="mapfaq-section">
 
             {/* LEFT: Leaflet map */}
-            <div className="map-side">
+            <div className="map-side" data-aos="fade-right">
                 <Map />
                 <p className="map-label">
                     <span className="dot" />– Number of our offices
@@ -47,7 +47,7 @@ const MapFaq = () => {
             </div>
 
             {/* RIGHT: FAQ accordion */}
-            <div className="faq-side">
+            <div className="faq-side" data-aos="fade-left">
                 <div className="faq-heading">
                     <h2>General <strong>FAQ's</strong></h2>
                     <p>Relocation of any vehicle type</p>

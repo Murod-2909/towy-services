@@ -52,7 +52,7 @@ function Contacts() {
 
             <section className="contacts-body">
                 <div className="container contacts-body__inner">
-                    <div className="contacts-body__form">
+                    <div className="contacts-body__form" data-aos="fade-right">
                         <h2>
                             Contact <strong>Form</strong>
                         </h2>
@@ -106,7 +106,7 @@ function Contacts() {
                         </form>
                     </div>
 
-                    <div className="contacts-body__info">
+                    <div className="contacts-body__info" data-aos="fade-left">
                         <h2>
                             Contact <strong>Info</strong>
                         </h2>

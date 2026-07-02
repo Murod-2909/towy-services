@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import AOS from "aos";
 import Header from "./Header";
 import Footer from "./Footer";
 import { Outlet, useLocation } from "react-router-dom";
@@ -14,6 +15,11 @@ const Layout = () => {
         window.addEventListener("scroll", handleScroll, { passive: true });
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
+
+    // Re-scan the DOM for data-aos elements after each route's content mounts
+    useEffect(() => {
+        AOS.refresh();
+    }, [pathname]);
 
     const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
 

@@ -3,6 +3,15 @@ import ReactDOM from 'react-dom/client';
 import Routes from './App';
 import "./assets/style/global.scss"
 import { BrowserRouter } from "react-router-dom";
+import AOS from "aos";
+import "aos/dist/aos.css";
+
+AOS.init({
+    duration: 700,
+    easing: "ease-out-cubic",
+    once: true,
+    offset: 60,
+});
 
 // Loaded at runtime (not in index.html) so a slow/unreachable font CDN
 // never blocks the page's initial render or load event.

@@ -33,7 +33,7 @@ function SingleService() {
 
             <section className="single-service">
                 <div className="container single-service__inner">
-                    <div className="single-service__image">
+                    <div className="single-service__image" data-aos="fade-right">
                         <img
                             src={service.image}
                             alt={service.title}
@@ -42,7 +42,7 @@ function SingleService() {
                         />
                     </div>
 
-                    <div className="single-service__content">
+                    <div className="single-service__content" data-aos="fade-left">
                         <h2>{service.title}</h2>
                         <div className="single-service__deco" aria-hidden="true">
                             <span /><span /><span /><span />
