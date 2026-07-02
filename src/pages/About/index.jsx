@@ -1,10 +1,9 @@
-import { Link } from "react-router-dom";
+import YellowBanner from "../../components/YellowBanner";
 import Offer from "../../components/Offer";
 import Stats from "../../components/Stats";
 import Team from "../../components/Team";
 import JoinQuote from "../../components/JoinQuote";
 import quoteBg from "../../assets/image/quote-bg.svg";
-import gearPattern from "../../assets/image/gear-pattern.svg";
 import "./about.scss";
 
 const VALUES = [
@@ -33,19 +32,7 @@ const VALUES = [
 function About() {
     return (
         <div>
-            <section
-                className="about-banner"
-                style={{ backgroundImage: `url(${gearPattern})` }}
-            >
-                <div className="container about-banner__content">
-                    <h1>About</h1>
-                    <nav className="about-banner__breadcrumb" aria-label="Breadcrumb">
-                        <Link to="/">Home</Link>
-                        <span aria-hidden="true">/</span>
-                        <span>About</span>
-                    </nav>
-                </div>
-            </section>
+            <YellowBanner title="About" />
 
             <Offer number="01" />
 
