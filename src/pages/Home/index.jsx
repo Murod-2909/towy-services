@@ -4,7 +4,7 @@ import Offer from "../../components/Offer";
 import Stats from "../../components/Stats";
 import Services from "../../components/Services";
 import JoinQuote from "../../components/JoinQuote";
-import joinImg from "../../assets/image/quote-bg.svg"
+import joinImg from "../../assets/image/quote.jpg"
 import BlogCarousel from "../../components/BlogCarousel";
 import MapFaq from "../../components/MapFaq";
 const Home = () => {

@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 import "./hero.scss";
 
 
-import heroBg1 from "../../assets/image/hero-1.svg";
-import heroBg2 from "../../assets/image/hero-2.svg";
-import heroBg3 from "../../assets/image/hero-3.svg";
+import heroBg1 from "../../assets/image/quote.jpg";
+import heroBg2 from "../../assets/image/02-2.jpg";
+import heroBg3 from "../../assets/image/top-slider-3.png";
 // ─────────────────────────────────────────────────────────────────────
 
 const slides = [

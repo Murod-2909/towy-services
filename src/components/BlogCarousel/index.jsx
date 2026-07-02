@@ -1,11 +1,11 @@
 import React, { useState, useRef, useEffect } from 'react';
 import './BlogCarousel.scss';
 
-import img1 from '../../assets/image/gallery-1.svg';
-import img2 from '../../assets/image/gallery-5.svg';
-import img3 from '../../assets/image/gallery-3.svg';
-import img4 from '../../assets/image/gallery-6.svg';
-import img5 from '../../assets/image/gallery-2.svg';
+import img1 from '../../assets/image/counters.jpg';
+import img2 from '../../assets/image/06-1.jpg';
+import img3 from '../../assets/image/07-1.jpg';
+import img4 from '../../assets/image/03-2.jpg';
+import img5 from '../../assets/image/counters.jpg';
 
 const POSTS = [
     {

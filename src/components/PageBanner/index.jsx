@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import "./pageBanner.scss";
-import bannerBg from "../../assets/image/hero-3.svg";
+import bannerBg from "../../assets/image/top-slider-3.png";
 
 function PageBanner({ title, subtitle }) {
     return (

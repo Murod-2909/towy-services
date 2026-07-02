@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import "./footer.scss";
+import "../../../assets/style/footer.scss";
 import logo from "../../../assets/image/logo.png";
-import postImg1 from "../../../assets/image/gallery-1.svg";
-import postImg2 from "../../../assets/image/gallery-3.svg";
+import postImg1 from "../../../assets/image/02-2.jpg";
+import postImg2 from "../../../assets/image/06-1.jpg";
 
 const usefulLinks = [
     { label: "About", to: "/about" },

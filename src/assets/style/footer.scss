@@ -1,4 +1,4 @@
-@use "../../../assets/style/global" as *;
+@use "global" as *;
 
 .footer {
   background: $secondary-color;
@@ -21,11 +21,11 @@
     position: relative;
     flex-shrink: 0;
     padding-right: 2.2rem;
-    font-size: 0.92rem;
+    font-size: 22px;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.02em;
-    color: $secondary-color;
+    color: #2e2d2d;
 
     strong {
       font-weight: 900;
@@ -56,6 +56,7 @@
   &__newsletter-form {
     display: flex;
     align-items: center;
+
     flex: 1;
     justify-content: center;
     gap: 1.2rem;
@@ -67,7 +68,7 @@
       border: none;
       border-bottom: 2px solid rgba($secondary-color, 0.35);
       padding: 0.4rem 0.1rem;
-      font-size: 0.85rem;
+      font-size: 22px;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.02em;
@@ -290,6 +291,7 @@
 
   &__bottom {
     border-top: 1px solid rgba($white, 0.1);
+    background: #111111;
   }
 
   &__bottom-inner {

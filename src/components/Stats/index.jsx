@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import "./stats.scss";
 
-import statsBg from "../../assets/image/counters-bg.svg";
+import statsBg from "../../assets/image/counters.jpg";
 
 const STATS = [
     {

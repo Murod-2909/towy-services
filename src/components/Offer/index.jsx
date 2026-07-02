@@ -1,7 +1,7 @@
 import "./offer.scss";
 
 
-import truckImg from "../../assets/image/truck.svg";
+import truckImg from "../../assets/image/truck.png";
 
 const features = [
     {

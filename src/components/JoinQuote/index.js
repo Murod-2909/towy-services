@@ -1,18 +1,7 @@
 import React, { useState } from 'react';
 import './JoinQuote.scss';
 
-/**
- * JoinQuote — ikki qismli section
- *
- * Props:
- *  joinBg  {string} — chap (Join) tomoni uchun rasm URL yoki import
- *  quoteBg {string} — o'ng (Quote) tomoni uchun rasm URL yoki import
- *
- * Misol:
- *   import joinImg  from '../assets/join-bg.jpg';
- *   import quoteImg from '../assets/quote-bg.jpg';
- *   <JoinQuote joinBg={joinImg} quoteBg={quoteImg} />
- */
+
 const JoinQuote = ({ joinBg = '', quoteBg = '' }) => {
     const [form, setForm] = useState({
         fullName: '',
