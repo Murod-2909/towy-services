@@ -40,6 +40,14 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+// AOS's fade-left/fade-right entrance animations translate elements past
+// the viewport edge before settling. Clipping it on #root (rather than
+// html/body) avoids turning the document root into its own scroll
+// container, which would break window.scrollTo/scroll-linked behavior.
+#root {
+  overflow-x: hidden;
+}
+
 ul,
 ol {
   list-style: none;

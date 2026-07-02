@@ -46,7 +46,7 @@ function Team() {
     const member = MEMBERS[index];
 
     return (
-        <section className="team">
+        <section className="team" data-aos="fade-up">
             <div className="team__grid" aria-hidden="true" />
             <div className="team__overlay" aria-hidden="true" />
 

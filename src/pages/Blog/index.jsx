@@ -77,8 +77,13 @@ function Blog() {
                 <div className="container">
                     <span className="blog-top__label">Top Post</span>
                     <div className="blog-top__grid">
-                        {topPosts.map((post) => (
-                            <article className="blog-top__card" key={post.id}>
+                        {topPosts.map((post, i) => (
+                            <article
+                                className="blog-top__card"
+                                key={post.id}
+                                data-aos="fade-up"
+                                data-aos-delay={i * 100}
+                            >
                                 <div className="blog-top__img">
                                     <img src={post.img} alt={post.title} loading="lazy" decoding="async" />
                                 </div>
@@ -94,7 +99,7 @@ function Blog() {
                 <div className="container blog-main__inner">
                     <div className="blog-main__list">
                         {rest.map((post) => (
-                            <article className="blog-post" key={post.id}>
+                            <article className="blog-post" key={post.id} data-aos="fade-up">
                                 <div className="blog-post__img">
                                     <img src={post.img} alt={post.title} loading="lazy" decoding="async" />
                                 </div>
@@ -106,7 +111,7 @@ function Blog() {
                             </article>
                         ))}
 
-                        <article className="blog-quote">
+                        <article className="blog-quote" data-aos="fade-up">
                             <span className="blog-quote__icon" aria-hidden="true">
                                 <QuoteIcon />
                             </span>
@@ -123,7 +128,7 @@ function Blog() {
                         </nav>
                     </div>
 
-                    <aside className="blog-sidebar">
+                    <aside className="blog-sidebar" data-aos="fade-left">
                         <div className="blog-sidebar__widget">
                             <h4>Get In Touch</h4>
                             <div className="blog-sidebar__social">

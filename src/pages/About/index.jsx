@@ -41,7 +41,7 @@ function About() {
 
             <section className="about-values">
                 <div className="container">
-                    <div className="about-values__header">
+                    <div className="about-values__header" data-aos="fade-up">
                         <span className="about-values__eyebrow">Why Choose Us</span>
                         <h2 className="about-values__heading">
                             WHAT MAKES US <strong>DIFFERENT</strong>
@@ -49,8 +49,13 @@ function About() {
                     </div>
 
                     <div className="about-values__grid">
-                        {VALUES.map((v) => (
-                            <div key={v.id} className="about-values__card">
+                        {VALUES.map((v, i) => (
+                            <div
+                                key={v.id}
+                                className="about-values__card"
+                                data-aos="fade-up"
+                                data-aos-delay={i * 100}
+                            >
                                 <h3>{v.title}</h3>
                                 <p>{v.desc}</p>
                             </div>

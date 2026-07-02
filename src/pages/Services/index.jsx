@@ -39,7 +39,7 @@ function ServicesPage() {
 
             <section className="process-section">
                 <div className="container">
-                    <div className="process-section__header">
+                    <div className="process-section__header" data-aos="fade-up">
                         <span className="process-section__eyebrow">How It Works</span>
                         <h2 className="process-section__heading">
                             FROM CALL TO <strong>ROADSIDE</strong>
@@ -48,7 +48,12 @@ function ServicesPage() {
 
                     <div className="process-section__grid">
                         {STEPS.map((step, i) => (
-                            <div key={step.id} className="process-section__card">
+                            <div
+                                key={step.id}
+                                className="process-section__card"
+                                data-aos="fade-up"
+                                data-aos-delay={i * 100}
+                            >
                                 <span className="process-section__num">{String(i + 1).padStart(2, "0")}</span>
                                 <h3>{step.title}</h3>
                                 <p>{step.desc}</p>

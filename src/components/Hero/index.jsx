@@ -164,7 +164,7 @@ function InfoBar() {
         <div className="info-bar">
 
             {/* Left — arrival time */}
-            <div className="info-bar__cell info-bar__cell--yellow">
+            <div className="info-bar__cell info-bar__cell--yellow" data-aos="fade-up">
                 <span className="info-bar__icon">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
                          stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -179,7 +179,7 @@ function InfoBar() {
             </div>
 
             {/* Center — phone number (clickable) */}
-            <div className="info-bar__cell info-bar__cell--dark">
+            <div className="info-bar__cell info-bar__cell--dark" data-aos="fade-up" data-aos-delay="100">
                 <div className="info-bar__phone-wrap">
                     <span className="info-bar__phone-label">Call us anytime</span>
                     <a className="info-bar__phone" href="tel:08004904545">
@@ -189,7 +189,7 @@ function InfoBar() {
             </div>
 
             {/* Right — 24/7 service */}
-            <div className="info-bar__cell info-bar__cell--yellow">
+            <div className="info-bar__cell info-bar__cell--yellow" data-aos="fade-up" data-aos-delay="200">
                 <span className="info-bar__icon">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
                          stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">

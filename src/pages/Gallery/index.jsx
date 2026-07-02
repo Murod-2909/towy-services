@@ -75,8 +75,13 @@ function Gallery() {
             <section className="gallery-section">
                 <div className="container">
                     <div className="gallery-grid">
-                        {PHOTOS.map((photo) => (
-                            <article className="gallery-card" key={photo.id}>
+                        {PHOTOS.map((photo, i) => (
+                            <article
+                                className="gallery-card"
+                                key={photo.id}
+                                data-aos="fade-up"
+                                data-aos-delay={(i % 2) * 100}
+                            >
                                 <button
                                     type="button"
                                     className="gallery-card__img"

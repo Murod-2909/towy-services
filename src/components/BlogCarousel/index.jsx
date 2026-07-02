@@ -105,7 +105,7 @@ const BlogCarousel = ({ posts = POSTS }) => {
             onMouseLeave={() => { isPaused.current = false; }}
         >
             {/* Header */}
-            <div className="blog-header">
+            <div className="blog-header" data-aos="fade-up">
                 <h2>Our <strong>Blog</strong></h2>
                 <p>Anywhere, anytime towing</p>
                 <div className="blog-divider" />
