@@ -1,57 +1,130 @@
-import PageBanner from "../../components/PageBanner";
-import JoinQuote from "../../components/JoinQuote";
-import MapFaq from "../../components/MapFaq";
-import quoteBg from "../../assets/image/quote-bg.svg";
+import { useState } from "react";
+import YellowBanner from "../../components/YellowBanner";
+import Map from "../../components/Map";
+import { PinIcon, MailIcon, PhoneIcon, ClockIcon } from "../../components/icons";
 import "./contacts.scss";
 
 const CONTACT_INFO = [
     {
-        id: "phone",
-        label: "Call Us",
-        value: "0 (800) 490 45 45",
-        href: "tel:08004904545",
+        id: "address",
+        icon: PinIcon,
+        value: "2551 Alfred Drive, Brooklyn, NY",
     },
     {
         id: "email",
-        label: "Email Us",
+        icon: MailIcon,
         value: "support@247towy.com",
         href: "mailto:support@247towy.com",
     },
     {
+        id: "phone",
+        icon: PhoneIcon,
+        value: "0 (800) 490 45 45",
+        href: "tel:08004904545",
+    },
+    {
         id: "hours",
-        label: "Working Hours",
+        icon: ClockIcon,
         value: "24 hours a day, 7 days a week",
     },
 ];
 
+const EMPTY_FORM = { fullName: "", subject: "", phone: "", email: "", message: "" };
+
 function Contacts() {
+    const [form, setForm] = useState(EMPTY_FORM);
+
+    const handleChange = (e) =>
+        setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        setForm(EMPTY_FORM);
+    };
+
     return (
         <div>
-            <PageBanner
-                title="Contact Us"
-                subtitle="Reach our dispatch team any time — we're always on call."
-            />
+            <YellowBanner title="Contacts" />
 
-            <section className="contact-info">
-                <div className="container contact-info__grid">
-                    {CONTACT_INFO.map((item) => (
-                        <div className="contact-info__card" key={item.id}>
-                            <span className="contact-info__label">{item.label}</span>
-                            {item.href ? (
-                                <a className="contact-info__value" href={item.href}>
-                                    {item.value}
-                                </a>
-                            ) : (
-                                <span className="contact-info__value">{item.value}</span>
-                            )}
-                        </div>
-                    ))}
-                </div>
+            <section className="contacts-map">
+                <Map minHeight={480} />
             </section>
 
-            <JoinQuote joinBg={quoteBg} quoteBg={quoteBg} />
+            <section className="contacts-body">
+                <div className="container contacts-body__inner">
+                    <div className="contacts-body__form">
+                        <h2>
+                            Contact <strong>Form</strong>
+                        </h2>
+                        <div className="contacts-body__deco" aria-hidden="true">
+                            <span /><span /><span /><span />
+                        </div>
 
-            <MapFaq />
+                        <form onSubmit={handleSubmit} noValidate>
+                            <div className="contacts-body__row">
+                                <input
+                                    type="text"
+                                    name="fullName"
+                                    placeholder="Full name"
+                                    value={form.fullName}
+                                    onChange={handleChange}
+                                    required
+                                />
+                                <input
+                                    type="text"
+                                    name="subject"
+                                    placeholder="Subject"
+                                    value={form.subject}
+                                    onChange={handleChange}
+                                />
+                            </div>
+                            <div className="contacts-body__row">
+                                <input
+                                    type="tel"
+                                    name="phone"
+                                    placeholder="Phone number"
+                                    value={form.phone}
+                                    onChange={handleChange}
+                                />
+                                <input
+                                    type="email"
+                                    name="email"
+                                    placeholder="Email"
+                                    value={form.email}
+                                    onChange={handleChange}
+                                    required
+                                />
+                            </div>
+                            <textarea
+                                name="message"
+                                placeholder="Message"
+                                rows="6"
+                                value={form.message}
+                                onChange={handleChange}
+                            />
+                            <button type="submit">Send Message</button>
+                        </form>
+                    </div>
+
+                    <div className="contacts-body__info">
+                        <h2>
+                            Contact <strong>Info</strong>
+                        </h2>
+                        <div className="contacts-body__deco" aria-hidden="true">
+                            <span /><span /><span /><span />
+                        </div>
+
+                        <ul>
+                            {CONTACT_INFO.map(({ id, icon: Icon, value, href }) => (
+                                <li key={id}>
+                                    <Icon />
+                                    {href ? <a href={href}>{value}</a> : <span>{value}</span>}
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                </div>
+            </section>
         </div>
     );
 }
