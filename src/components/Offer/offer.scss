@@ -67,6 +67,17 @@
     z-index: 1;
   }
 
+  &__number {
+    position: absolute;
+    top: -1.6rem;
+    left: -0.3rem;
+    z-index: -1;
+    font-size: 7rem;
+    font-weight: 900;
+    line-height: 1;
+    color: rgba($secondary-color, 0.06);
+  }
+
   &__eyebrow {
     display: block;
     font-size: 0.7rem;

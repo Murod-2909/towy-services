@@ -40,7 +40,7 @@ function CheckIcon() {
     );
 }
 
-function Offer() {
+function Offer({ number }) {
     return (
         <section className="offer" id="about">
             <div className="container offer__inner">
@@ -62,6 +62,7 @@ function Offer() {
 
                 {/* ── Right: content ── */}
                 <div className="offer__content">
+                    {number && <span className="offer__number" aria-hidden="true">{number}</span>}
                     <span className="offer__eyebrow">Effective Flatbed Transportation</span>
 
                     <h2 className="offer__heading">

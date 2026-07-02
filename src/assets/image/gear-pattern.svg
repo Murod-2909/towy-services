@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 400" width="500" height="400">
+  <defs>
+    <g id="gear">
+      <path d="M0 -60 L8 -58 L10 -46 L20 -43 L28 -50 L36 -44 L32 -33 L40 -26 L52 -30 L56 -21 L47 -13 L50 -3 L60 0 L60 8 L50 10 L47 20 L56 28 L50 36 L40 32 L33 40 L37 51 L28 56 L21 47 L10 50 L8 60 L0 60 L-3 50 L-13 47 L-21 56 L-28 50 L-24 40 L-33 33 L-44 37 L-50 28 L-40 21 L-43 10 L-53 8 L-53 0 L-43 -3 L-40 -13 L-50 -21 L-44 -28 L-33 -24 L-26 -33 L-30 -44 L-21 -50 L-13 -40 L-3 -43 Z" fill="currentColor"/>
+      <circle r="22" fill="none" stroke="#000" stroke-opacity="0" />
+    </g>
+  </defs>
+  <use href="#gear" x="90" y="90" transform="scale(1.6)" transform-origin="90 90" opacity="0.9"/>
+  <use href="#gear" x="230" y="180" transform="scale(1.1)" transform-origin="230 180" opacity="0.7"/>
+  <use href="#gear" x="60" y="290" transform="scale(0.8)" transform-origin="60 290" opacity="0.6"/>
+  <use href="#gear" x="380" y="80" transform="scale(0.9)" transform-origin="380 80" opacity="0.6"/>
+</svg>

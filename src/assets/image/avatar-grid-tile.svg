@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 240" width="480" height="240">
+  <defs>
+    <g id="face">
+      <rect width="120" height="120" fill="#3a3a3a"/>
+      <circle cx="60" cy="46" r="24" fill="#565656"/>
+      <path d="M18 118c0-27 19-48 42-48s42 21 42 48z" fill="#565656"/>
+    </g>
+  </defs>
+  <use href="#face" x="0" y="0"/>
+  <use href="#face" x="120" y="0"/>
+  <use href="#face" x="240" y="0"/>
+  <use href="#face" x="360" y="0"/>
+  <use href="#face" x="0" y="120"/>
+  <use href="#face" x="120" y="120"/>
+  <use href="#face" x="240" y="120"/>
+  <use href="#face" x="360" y="120"/>
+</svg>
