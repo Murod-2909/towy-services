@@ -1,21 +1,25 @@
 import { useEffect, useState } from "react";
 import { NavLink, useLocation } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import "../../../assets/style/header.scss";
 import logo from "../../../assets/image/logo.png";
+import LanguageSwitcher from "../../LanguageSwitcher";
 
 const navItems = [
-    { label: "Home",     to: "/"         },
-    { label: "About",    to: "/about"    },
-    { label: "Services", to: "/services" },
-    { label: "Gallery",  to: "/gallery"  },
-    { label: "Blog",     to: "/blog"     },
-    { label: "Contacts", to: "/contacts" },
+    { key: "nav.home",     to: "/"         },
+    { key: "nav.about",    to: "/about"    },
+    { key: "nav.services", to: "/services" },
+    { key: "nav.gallery",  to: "/gallery"  },
+    { key: "nav.blog",     to: "/blog"     },
+    { key: "nav.contacts", to: "/contacts" },
 ];
 
 const leftNavItems  = navItems.slice(0, 3);
 const rightNavItems = navItems.slice(3);
 
 function NavList({ items, className = "", onLinkClick }) {
+    const { t } = useTranslation();
+
     return (
         <ul className={`header__nav-list ${className}`.trim()}>
             {items.map((item) => (
@@ -26,7 +30,7 @@ function NavList({ items, className = "", onLinkClick }) {
                         end={item.to === "/"}
                         onClick={onLinkClick}
                     >
-                        {item.label}
+                        {t(item.key)}
                     </NavLink>
                 </li>
             ))}
@@ -35,6 +39,7 @@ function NavList({ items, className = "", onLinkClick }) {
 }
 
 function Header() {
+    const { t } = useTranslation();
     const [isOpen, setIsOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
     const { pathname } = useLocation();
@@ -86,14 +91,15 @@ function Header() {
                         />
                     </span>
                     <span className="header__brand-text">
-                        <span className="header__brand-title">24/7 TOWY</span>
-                        <span className="header__brand-subtitle">Towing Services</span>
+                        <span className="header__brand-title">{t("header.brandTitle")}</span>
+                        <span className="header__brand-subtitle">{t("header.brandSubtitle")}</span>
                     </span>
                 </NavLink>
 
                 {/* Right desktop nav */}
                 <nav className="header__nav header__nav--right" aria-label="Right menu">
                     <NavList items={rightNavItems} />
+                    <LanguageSwitcher />
                 </nav>
 
                 {/* Burger button — visible only on mobile */}
@@ -123,6 +129,7 @@ function Header() {
                         className="header__nav-list--mobile"
                         onLinkClick={handleMobileLinkClick}
                     />
+                    <LanguageSwitcher className="header__lang--mobile" />
                 </div>
             </nav>
         </header>

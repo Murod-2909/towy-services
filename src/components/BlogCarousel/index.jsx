@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import './BlogCarousel.scss';
 
 import img1 from '../../assets/image/counters.jpg';
@@ -7,38 +8,7 @@ import img3 from '../../assets/image/07-1.jpg';
 import img4 from '../../assets/image/03-2.jpg';
 import img5 from '../../assets/image/counters.jpg';
 
-const POSTS = [
-    {
-        id: 1,
-        img: img1,
-        title: 'Fast Response Towing Service',
-        excerpt: 'Our team is available 24/7 to help you get back on the road as quickly as possible.',
-    },
-    {
-        id: 2,
-        img: img2,
-        title: 'Choosing The Right Towing Method',
-        excerpt: 'Flatbed, wheel-lift or dolly — how we decide which method keeps your vehicle safest.',
-    },
-    {
-        id: 3,
-        img: img3,
-        title: 'Motorcycle Towing Done Right',
-        excerpt: 'Why motorcycles need specialized equipment and a trained crew during every tow.',
-    },
-    {
-        id: 4,
-        img: img4,
-        title: 'What To Do Right After An Accident',
-        excerpt: 'A short checklist of the first steps that keep you safe and make the tow smoother.',
-    },
-    {
-        id: 5,
-        img: img5,
-        title: 'Emergency Roadside Assistance',
-        excerpt: 'Flat tire, dead battery, or locked out? We have you covered anywhere, anytime.',
-    },
-];
+const POST_IMAGES = [img1, img2, img3, img4, img5];
 
 const AUTO_INTERVAL = 3500; // ms
 const GAP = 28;
@@ -58,7 +28,15 @@ function useVisibleCount() {
     return count;
 }
 
-const BlogCarousel = ({ posts = POSTS }) => {
+const BlogCarousel = () => {
+    const { t } = useTranslation();
+    const posts = t('blogCarousel.posts', { returnObjects: true }).map((p, i) => ({
+        id: i,
+        img: POST_IMAGES[i],
+        title: p.title,
+        excerpt: p.excerpt,
+    }));
+
     const [index, setIndex] = useState(0);
     const visibleCount = useVisibleCount();
     const maxIndex = Math.max(0, posts.length - visibleCount);
@@ -106,8 +84,8 @@ const BlogCarousel = ({ posts = POSTS }) => {
         >
             {/* Header */}
             <div className="blog-header" data-aos="fade-up">
-                <h2>Our <strong>Blog</strong></h2>
-                <p>Anywhere, anytime towing</p>
+                <h2>{t('blogCarousel.heading')} <strong>{t('blogCarousel.headingStrong')}</strong></h2>
+                <p>{t('blogCarousel.sub')}</p>
                 <div className="blog-divider" />
             </div>
 

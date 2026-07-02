@@ -1,17 +1,20 @@
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import "./services.scss";
 import { SERVICES } from "../../data/services";
 
 function Services() {
+    const { t } = useTranslation();
+
     return (
         <section className="services" id="services">
             <div className="container">
 
                 {/* ── Section header ── */}
                 <div className="services__header" data-aos="fade-up">
-                    <span className="services__eyebrow">Emergency Roadside Assistance</span>
+                    <span className="services__eyebrow">{t("services.eyebrow")}</span>
                     <h2 className="services__heading">
-                        OUR <strong>SERVICES</strong>
+                        {t("services.heading")} <strong>{t("services.headingStrong")}</strong>
                     </h2>
                     <div className="services__deco" aria-hidden="true">
                         <span /><span /><span /><span />
@@ -31,15 +34,15 @@ function Services() {
                             <span className="services__icon" aria-hidden="true">
                                 <img
                                     src={s.icon}
-                                    alt={s.title}
+                                    alt={t(`services.items.${s.id}.title`)}
                                     width="90"
                                     height="90"
                                     loading="lazy"
                                     decoding="async"
                                 />
                             </span>
-                            <h3 className="services__title">{s.title}</h3>
-                            <p className="services__desc">{s.desc}</p>
+                            <h3 className="services__title">{t(`services.items.${s.id}.title`)}</h3>
+                            <p className="services__desc">{t(`services.items.${s.id}.desc`)}</p>
                         </Link>
                     ))}
                 </div>

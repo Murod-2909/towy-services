@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import "../../../assets/style/footer.scss";
 import logo from "../../../assets/image/logo.png";
 import postImg1 from "../../../assets/image/02-2.jpg";
@@ -16,20 +17,21 @@ import {
 } from "../../icons";
 
 const usefulLinks = [
-    { label: "About", to: "/about" },
-    { label: "Services", to: "/services" },
-    { label: "Gallery", to: "/gallery" },
-    { label: "Blog", to: "/blog" },
-    { label: "Contacts", to: "/contacts" },
-    { label: "Home", to: "/" },
+    { key: "nav.about", to: "/about" },
+    { key: "nav.services", to: "/services" },
+    { key: "nav.gallery", to: "/gallery" },
+    { key: "nav.blog", to: "/blog" },
+    { key: "nav.contacts", to: "/contacts" },
+    { key: "nav.home", to: "/" },
 ];
 
 const latestPosts = [
-    { id: 1, img: postImg1, title: "Fast Response Towing Service", date: "12 Jun 2026" },
-    { id: 2, img: postImg2, title: "Motorcycle Towing Done Right", date: "9 May 2026" },
+    { id: 1, img: postImg1, key: "blogCarousel.posts.0.title", date: "12 Jun 2026" },
+    { id: 2, img: postImg2, key: "blogCarousel.posts.2.title", date: "9 May 2026" },
 ];
 
 const Footer = () => {
+    const { t } = useTranslation();
     const year = new Date().getFullYear();
     const [email, setEmail] = useState("");
 
@@ -43,14 +45,14 @@ const Footer = () => {
             <div className="footer__newsletter">
                 <div className="container footer__newsletter-inner">
                     <span className="footer__newsletter-label">
-                        Register for <strong>our newsletter</strong>
+                        {t("footer.registerNewsletter")} <strong>{t("footer.registerNewsletterStrong")}</strong>
                     </span>
 
                     <form className="footer__newsletter-form" onSubmit={handleSubscribe}>
                         <input
                             type="email"
                             required
-                            placeholder="Enter e-mail address"
+                            placeholder={t("footer.enterEmail")}
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
                         />
@@ -60,7 +62,7 @@ const Footer = () => {
                     </form>
 
                     <span className="footer__newsletter-label footer__newsletter-label--right">
-                        Get latest <strong>company news</strong>
+                        {t("footer.getLatestNews")} <strong>{t("footer.getLatestNewsStrong")}</strong>
                     </span>
                 </div>
             </div>
@@ -70,14 +72,11 @@ const Footer = () => {
                     <Link to="/" className="footer__brand">
                         <img src={logo} width="20" height="42" alt="logo" loading="lazy" decoding="async" />
                         <span>
-                            <span className="footer__brand-title">24/7 TOWY</span>
-                            <span className="footer__brand-subtitle">Towing Services</span>
+                            <span className="footer__brand-title">{t("header.brandTitle")}</span>
+                            <span className="footer__brand-subtitle">{t("header.brandSubtitle")}</span>
                         </span>
                     </Link>
-                    <p className="footer__desc">
-                        Fast, courteous and inexpensive towing and roadside assistance,
-                        available around the clock, every day of the year.
-                    </p>
+                    <p className="footer__desc">{t("footer.desc")}</p>
                     <div className="footer__social">
                         {SOCIAL_LINKS.map(({ label, href, icon: Icon }) => (
                             <a
@@ -94,13 +93,13 @@ const Footer = () => {
                 </div>
 
                 <div className="footer__col">
-                    <h3 className="footer__heading">Useful Links</h3>
+                    <h3 className="footer__heading">{t("footer.usefulLinks")}</h3>
                     <div className="footer__deco" aria-hidden="true" />
                     <ul className="footer__list footer__list--links">
                         {usefulLinks.map((item) => (
                             <li key={item.to}>
                                 <Link to={item.to}>
-                                    <ChevronIcon /> {item.label}
+                                    <ChevronIcon /> {t(item.key)}
                                 </Link>
                             </li>
                         ))}
@@ -108,12 +107,12 @@ const Footer = () => {
                 </div>
 
                 <div className="footer__col">
-                    <h3 className="footer__heading">Get In Touch</h3>
+                    <h3 className="footer__heading">{t("footer.getInTouch")}</h3>
                     <div className="footer__deco" aria-hidden="true" />
                     <ul className="footer__contact">
                         <li>
                             <PinIcon />
-                            <span>2551 Alfred Drive, Brooklyn, NY</span>
+                            <span>{t("contacts.address")}</span>
                         </li>
                         <li>
                             <PhoneIcon />
@@ -125,13 +124,13 @@ const Footer = () => {
                         </li>
                         <li>
                             <ClockIcon />
-                            <span>24 hours a day, 7 days a week</span>
+                            <span>{t("contacts.hours")}</span>
                         </li>
                     </ul>
                 </div>
 
                 <div className="footer__col">
-                    <h3 className="footer__heading">Latest Posts</h3>
+                    <h3 className="footer__heading">{t("footer.latestPosts")}</h3>
                     <div className="footer__deco" aria-hidden="true" />
                     <ul className="footer__posts">
                         {latestPosts.map((post) => (
@@ -141,7 +140,7 @@ const Footer = () => {
                                 </Link>
                                 <div>
                                     <Link to="/blog" className="footer__post-title">
-                                        {post.title}
+                                        {t(post.key)}
                                     </Link>
                                     <span className="footer__post-date">{post.date}</span>
                                 </div>
@@ -154,7 +153,7 @@ const Footer = () => {
             <div className="footer__bottom">
                 <div className="container footer__bottom-inner">
                     <span>
-                        24/7 Towy - Towing Services <HeartIcon /> All Rights Reserved &copy; {year}
+                        {t("header.brandTitle")} - {t("header.brandSubtitle")} <HeartIcon /> {t("footer.rights")} &copy; {year}
                     </span>
                 </div>
             </div>
@@ -163,4 +162,3 @@ const Footer = () => {
 };
 
 export default Footer;
-

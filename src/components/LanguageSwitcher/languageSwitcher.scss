@@ -1,0 +1,75 @@
+@use "../../assets/style/global" as *;
+
+.lang-switcher {
+  position: relative;
+  margin-left: clamp(1rem, 2vw, 2rem);
+
+  &__toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.4rem 0.7rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    color: $white;
+    border: 1px solid rgba($white, 0.25);
+    border-radius: 4px;
+    transition: $transition;
+
+    &:hover,
+    &:focus-visible {
+      border-color: $yellow-color;
+      color: $yellow-color;
+    }
+
+    svg {
+      flex-shrink: 0;
+    }
+  }
+
+  &__menu {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    z-index: 20;
+    min-width: 72px;
+    background: $secondary-color;
+    border: 1px solid rgba($white, 0.12);
+    border-radius: 4px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+    overflow: hidden;
+
+    button {
+      display: block;
+      width: 100%;
+      padding: 0.6rem 0.9rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-align: left;
+      color: rgba($white, 0.75);
+
+      &:hover {
+        background: rgba($white, 0.06);
+        color: $white;
+      }
+
+      &.is-active {
+        color: $yellow-color;
+      }
+    }
+  }
+}
+
+// Mobile menu variant — sits inline under the nav links
+.lang-switcher.header__lang--mobile {
+  margin: 1.2rem 0 0;
+  display: flex;
+  justify-content: center;
+
+  .lang-switcher__menu {
+    right: auto;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}

@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import YellowBanner from "../../components/YellowBanner";
 import Offer from "../../components/Offer";
 import Stats from "../../components/Stats";
@@ -6,35 +7,15 @@ import JoinQuote from "../../components/JoinQuote";
 import quoteBg from "../../assets/image/quote-bg.svg";
 import "./about.scss";
 
-const VALUES = [
-    {
-        id: "certified",
-        title: "Certified & Insured",
-        desc: "Every driver is licensed, background-checked and fully insured, so your vehicle is always in safe hands.",
-    },
-    {
-        id: "fleet",
-        title: "Modern Fleet",
-        desc: "Our flatbeds and wheel-lift trucks are regularly serviced to keep response times fast and towing damage-free.",
-    },
-    {
-        id: "response",
-        title: "Rapid Response",
-        desc: "Dispatch is staffed 24/7 with GPS-routed trucks, keeping our average arrival time under 30 minutes.",
-    },
-    {
-        id: "pricing",
-        title: "Transparent Pricing",
-        desc: "No hidden fees — you get an upfront quote before the truck ever leaves the yard.",
-    },
-];
-
 function About() {
+    const { t } = useTranslation();
+    const values = t("about.values", { returnObjects: true });
+
     return (
         <div>
-            <YellowBanner title="About" />
+            <YellowBanner title={t("about.bannerTitle")} />
 
-            <Offer number="01" />
+            <Offer number={t("about.offerNumber")} />
 
             <Stats />
 
@@ -43,16 +24,16 @@ function About() {
             <section className="about-values">
                 <div className="container">
                     <div className="about-values__header" data-aos="fade-up">
-                        <span className="about-values__eyebrow">Why Choose Us</span>
+                        <span className="about-values__eyebrow">{t("about.whyChooseUs")}</span>
                         <h2 className="about-values__heading">
-                            WHAT MAKES US <strong>DIFFERENT</strong>
+                            {t("about.valuesHeading")} <strong>{t("about.valuesHeadingStrong")}</strong>
                         </h2>
                     </div>
 
                     <div className="about-values__grid">
-                        {VALUES.map((v, i) => (
+                        {values.map((v, i) => (
                             <div
-                                key={v.id}
+                                key={i}
                                 className="about-values__card"
                                 data-aos="fade-up"
                                 data-aos-delay={i * 100}

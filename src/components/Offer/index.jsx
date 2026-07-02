@@ -1,30 +1,8 @@
+import { useTranslation } from "react-i18next";
 import "./offer.scss";
 
 
 import truckImg from "../../assets/image/truck.png";
-
-const features = [
-    {
-        id: 1,
-        text: <>More than <strong>30 years of experience</strong></>,
-    },
-    {
-        id: 2,
-        text: <>Short arrival time of <strong>30 minutes or less</strong></>,
-    },
-    {
-        id: 3,
-        text: <>Honest competitive prices — <strong>zero hidden fees</strong></>,
-    },
-    {
-        id: 4,
-        text: <>Friendly and <strong>professional service</strong></>,
-    },
-    {
-        id: 5,
-        text: <>Available <strong>24 hours</strong> a day, <strong>7 days</strong> a week</>,
-    },
-];
 
 function CheckIcon() {
     return (
@@ -41,6 +19,9 @@ function CheckIcon() {
 }
 
 function Offer({ number }) {
+    const { t } = useTranslation();
+    const features = t("offer.features", { returnObjects: true });
+
     return (
         <section className="offer" id="about">
             <div className="container offer__inner">
@@ -63,10 +44,10 @@ function Offer({ number }) {
                 {/* ── Right: content ── */}
                 <div className="offer__content" data-aos="fade-left">
                     {number && <span className="offer__number" aria-hidden="true">{number}</span>}
-                    <span className="offer__eyebrow">Effective Flatbed Transportation</span>
+                    <span className="offer__eyebrow">{t("offer.eyebrow")}</span>
 
                     <h2 className="offer__heading">
-                        WHAT <strong>WE OFFER</strong>
+                        {t("offer.heading")} <strong>{t("offer.headingStrong")}</strong>
                     </h2>
 
                     {/* Yellow dashes */}
@@ -74,17 +55,13 @@ function Offer({ number }) {
                         <span /><span /><span /><span />
                     </div>
 
-                    <p className="offer__desc">
-                        We provide fast, courteous and inexpensive towing services in New York.
-                        We are fully insured and been in business since 1986. We are ready to
-                        respond to all your vehicle emergency needs 24 hours a day, seven days a week.
-                    </p>
+                    <p className="offer__desc">{t("offer.desc")}</p>
 
                     {/* Feature checklist */}
                     <ul className="offer__list">
                         {features.map((f, i) => (
                             <li
-                                key={f.id}
+                                key={i}
                                 className="offer__item"
                                 data-aos="fade-up"
                                 data-aos-delay={100 + i * 80}
@@ -92,7 +69,7 @@ function Offer({ number }) {
                                 <span className="offer__check" aria-hidden="true">
                                     <CheckIcon />
                                 </span>
-                                {f.text}
+                                {f.prefix} <strong>{f.strong}</strong>{f.middle ? <> {f.middle} <strong>{f.strong2}</strong></> : null} {f.suffix}
                             </li>
                         ))}
                     </ul>

@@ -1,39 +1,24 @@
 import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import "./team.scss";
 import avatar1 from "../../assets/image/avatar-1.svg";
 import avatar2 from "../../assets/image/avatar-2.svg";
 import avatar3 from "../../assets/image/avatar-3.svg";
 
-const MEMBERS = [
-    {
-        id: 1,
-        name: "Lulu Russell",
-        role: "Operations Director",
-        avatar: avatar1,
-        quote: "Our dispatch team gets a truck moving within minutes of every call. That commitment to speed and honesty is what our drivers are known for across the city.",
-    },
-    {
-        id: 2,
-        name: "James Cooper",
-        role: "Lead Technician",
-        avatar: avatar2,
-        quote: "Every truck in our fleet is inspected before each shift. We'd rather delay a job by five minutes than risk damaging a customer's vehicle.",
-    },
-    {
-        id: 3,
-        name: "Maria Chen",
-        role: "Customer Care Manager",
-        avatar: avatar3,
-        quote: "People call us on their worst day on the road. Our job is to make the rest of that day as easy as possible, from the first call to the final drop-off.",
-    },
-];
+const AVATARS = [avatar1, avatar2, avatar3];
 
 const AUTOPLAY_DELAY = 6000;
 
 function Team() {
+    const { t } = useTranslation();
+    const members = t("team.members", { returnObjects: true }).map((m, i) => ({
+        ...m,
+        avatar: AVATARS[i],
+    }));
+
     const [index, setIndex] = useState(0);
 
-    const goTo = (i) => setIndex((i + MEMBERS.length) % MEMBERS.length);
+    const goTo = (i) => setIndex((i + members.length) % members.length);
     const next = () => goTo(index + 1);
     const prev = () => goTo(index - 1);
 
@@ -43,7 +28,7 @@ function Team() {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [index]);
 
-    const member = MEMBERS[index];
+    const member = members[index];
 
     return (
         <section className="team" data-aos="fade-up">
@@ -56,7 +41,7 @@ function Team() {
                 </svg>
             </button>
 
-            <div className="container team__content" key={member.id}>
+            <div className="container team__content" key={index}>
                 <div className="team__avatar">
                     <img src={member.avatar} alt={member.name} width="90" height="90" loading="lazy" decoding="async" />
                 </div>

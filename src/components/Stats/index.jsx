@@ -1,37 +1,14 @@
 import { useEffect, useRef, useState } from "react";
+import { useTranslation } from "react-i18next";
 import "./stats.scss";
 
 import statsBg from "../../assets/image/counters.jpg";
 
 const STATS = [
-    {
-        id: "experience",
-        value: 30,
-        suffix: "+",
-        label: "Years of Experience",
-        icon: <StarIcon />,
-    },
-    {
-        id: "offices",
-        value: 12,
-        suffix: "",
-        label: "Offices Worldwide",
-        icon: <BuildingIcon />,
-    },
-    {
-        id: "vehicles",
-        value: 9800,
-        suffix: "+",
-        label: "Vehicles Towed",
-        icon: <TruckIcon />,
-    },
-    {
-        id: "workers",
-        value: 145,
-        suffix: "",
-        label: "Workers in Team",
-        icon: <TeamIcon />,
-    },
+    { id: "experience", value: 30, suffix: "+", icon: <StarIcon /> },
+    { id: "offices", value: 12, suffix: "", icon: <BuildingIcon /> },
+    { id: "vehicles", value: 9800, suffix: "+", icon: <TruckIcon /> },
+    { id: "workers", value: 145, suffix: "", icon: <TeamIcon /> },
 ];
 
 // ── Count-up hook ─────────────────────────────────────────────────────
@@ -80,6 +57,7 @@ function StatItem({ value, suffix, label, icon, active, delay }) {
 
 // ── Main component ────────────────────────────────────────────────────
 function Stats() {
+    const { t } = useTranslation();
     const sectionRef = useRef(null);
     const bgRef      = useRef(null);
     const [visible, setVisible] = useState(false);
@@ -144,7 +122,7 @@ function Stats() {
                             key={s.id}
                             value={s.value}
                             suffix={s.suffix}
-                            label={s.label}
+                            label={t(`stats.${s.id}`)}
                             icon={s.icon}
                             active={visible}
                             delay={i * 120}
