@@ -6,48 +6,66 @@
 
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1.5rem;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2.5rem 2rem;
 }
 
-.gallery-item {
-  position: relative;
-  display: block;
-  width: 100%;
-  padding: 0;
-  border-radius: 6px;
-  overflow: hidden;
-  aspect-ratio: 4 / 3;
-  cursor: pointer;
+.gallery-card {
+  background: $white;
+  border: 1px solid $border-color;
 
-  img {
+  &__img {
+    position: relative;
+    display: block;
     width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.4s ease;
+    padding: 0;
+    overflow: hidden;
+    aspect-ratio: 16 / 10;
+    cursor: pointer;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+      display: block;
+    }
+
+    &:hover img {
+      transform: scale(1.06);
+    }
   }
 
-  &__zoom {
+  &__stripe {
     position: absolute;
-    inset: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 2.4rem;
-    font-weight: 300;
-    color: $white;
-    background: rgba($secondary-color, 0.55);
-    opacity: 0;
-    transition: opacity 0.3s ease;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 14px;
+    background: repeating-linear-gradient(
+      -45deg,
+      $yellow-color 0px, $yellow-color 10px,
+      $secondary-color 10px, $secondary-color 20px
+    );
+    opacity: 0.9;
   }
 
-  &:hover img {
-    transform: scale(1.08);
-  }
+  &__body {
+    padding: 1.8rem 1.6rem 2rem;
+    text-align: center;
 
-  &:hover &__zoom,
-  &:focus-visible &__zoom {
-    opacity: 1;
+    h3 {
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: $secondary-color;
+      margin-bottom: 0.8rem;
+    }
+
+    p {
+      font-size: 0.92rem;
+      line-height: 1.75;
+      color: rgba($secondary-color, 0.55);
+    }
   }
 }
 
@@ -85,21 +103,9 @@
   }
 }
 
-@media (max-width: $bp-lg) {
-  .gallery-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
 @media (max-width: $bp-sm) {
   .gallery-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
-  }
-}
-
-@media (max-width: $bp-xs) {
-  .gallery-grid {
     grid-template-columns: 1fr;
+    gap: 2rem;
   }
 }

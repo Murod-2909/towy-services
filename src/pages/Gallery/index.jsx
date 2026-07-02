@@ -12,14 +12,54 @@ import img7 from "../../assets/image/gallery-7.svg";
 import img8 from "../../assets/image/gallery-8.svg";
 
 const PHOTOS = [
-    { id: 1, src: img1, alt: "Flatbed towing on a sunny highway" },
-    { id: 2, src: img2, alt: "Night emergency response with beacon lights" },
-    { id: 3, src: img3, alt: "Motorcycle towing" },
-    { id: 4, src: img4, alt: "Winter roadside assistance" },
-    { id: 5, src: img5, alt: "City street towing" },
-    { id: 6, src: img6, alt: "Accident recovery" },
-    { id: 7, src: img7, alt: "Our towing crew" },
-    { id: 8, src: img8, alt: "24/7 dispatch center" },
+    {
+        id: 1,
+        src: img1,
+        title: "Sunset Highway Recovery",
+        caption: "A flatbed pickup on a quiet stretch of highway as the sun goes down.",
+    },
+    {
+        id: 2,
+        src: img2,
+        title: "Night Emergency Response",
+        caption: "Beacon lights on scene minutes after an overnight breakdown call.",
+    },
+    {
+        id: 3,
+        src: img3,
+        title: "Motorcycle & Bike Transport",
+        caption: "Specialized tie-downs keep two-wheeled vehicles secure in transit.",
+    },
+    {
+        id: 4,
+        src: img4,
+        title: "Winter Roadside Rescue",
+        caption: "Snow and ice don't slow us down — our trucks run every season.",
+    },
+    {
+        id: 5,
+        src: img5,
+        title: "Downtown Towing",
+        caption: "Navigating tight city streets to clear a vehicle safely.",
+    },
+    {
+        id: 6,
+        src: img6,
+        title: "Accident Recovery",
+        caption: "Fast, careful recovery to get the road clear and your car to the shop.",
+    },
+    {
+        id: 7,
+        src: img7,
+        title: "Meet Our Crew",
+        caption: "Licensed, insured drivers who treat every vehicle like their own.",
+    },
+    {
+        id: 8,
+        src: img8,
+        title: "24/7 Dispatch Center",
+        caption: "Our dispatch team routes the nearest truck the moment you call.",
+    },
 ];
 
 function Gallery() {
@@ -36,15 +76,21 @@ function Gallery() {
                 <div className="container">
                     <div className="gallery-grid">
                         {PHOTOS.map((photo) => (
-                            <button
-                                key={photo.id}
-                                type="button"
-                                className="gallery-item"
-                                onClick={() => setActive(photo)}
-                            >
-                                <img src={photo.src} alt={photo.alt} loading="lazy" decoding="async" />
-                                <span className="gallery-item__zoom" aria-hidden="true">+</span>
-                            </button>
+                            <article className="gallery-card" key={photo.id}>
+                                <button
+                                    type="button"
+                                    className="gallery-card__img"
+                                    onClick={() => setActive(photo)}
+                                    aria-label={`View ${photo.title}`}
+                                >
+                                    <img src={photo.src} alt={photo.title} loading="lazy" decoding="async" />
+                                    <span className="gallery-card__stripe" aria-hidden="true" />
+                                </button>
+                                <div className="gallery-card__body">
+                                    <h3>{photo.title}</h3>
+                                    <p>{photo.caption}</p>
+                                </div>
+                            </article>
                         ))}
                     </div>
                 </div>
@@ -55,7 +101,7 @@ function Gallery() {
                     className="gallery-lightbox"
                     role="dialog"
                     aria-modal="true"
-                    aria-label={active.alt}
+                    aria-label={active.title}
                     onClick={() => setActive(null)}
                 >
                     <button
@@ -66,7 +112,7 @@ function Gallery() {
                     >
                         &times;
                     </button>
-                    <img src={active.src} alt={active.alt} onClick={(e) => e.stopPropagation()} />
+                    <img src={active.src} alt={active.title} onClick={(e) => e.stopPropagation()} />
                 </div>
             )}
         </div>
