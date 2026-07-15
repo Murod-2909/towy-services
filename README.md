@@ -1,70 +1,77 @@
-# Getting Started with Create React Router
+# 24/7 Towy — Towing & Roadside Assistance Website
 
-This project was bootstrapped with [Create React Router](https://github.com/facebook/create-react-app).
+A marketing website for a 24/7 towing and roadside assistance service: service overview, per-service detail pages, gallery, blog, and a contact page with an interactive map. Built as a single-page application with React Router, multi-language support (EN/RU/PL), and scroll animations.
 
-## Available Scripts
+## Screenshots
 
-In the project directory, you can run:
+| Home | Services |
+| --- | --- |
+| ![Home page](./docs/screenshots/home.png) | ![Services page](./docs/screenshots/services.png) |
 
-### `npm start`
+| Contacts | Home (mobile) |
+| --- | --- |
+| ![Contacts page](./docs/screenshots/contacts.png) | <img src="./docs/screenshots/home-mobile.png" width="260" alt="Home page on mobile" /> |
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Tech Stack
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **React 19** (Create React App / `react-scripts`)
+- **React Router v7** — client-side routing (`src/App.js`)
+- **Sass/SCSS** — component-scoped stylesheets (BEM-style class naming)
+- **react-i18next** — English, Russian and Polish translations (`src/i18n`)
+- **AOS (Animate On Scroll)** — scroll-triggered entrance animations
+- **Leaflet / react-leaflet** — the map on the Contacts page
+- **@testing-library/react + Jest** — component tests (via `react-scripts test`)
 
-### `npm test`
+## Project Structure
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```
+src/
+  App.js               route definitions
+  index.js              app bootstrap, AOS init, font loading
+  i18n/                  i18next setup + en/ru/pl translation dictionaries
+  pages/                 one folder per route (Home, About, Services, SingleService,
+                          Gallery, Blog, Contacts, NotFound)
+  components/             shared UI building blocks (Header/Footer, Hero, Services,
+                          Team, Map, LanguageSwitcher, etc.)
+  data/                  static structural data (e.g. service ids/images)
+  hoc/                   higher-order components (ScrollTop)
+  assets/                images and global Sass (variables, resets)
+```
 
-### `npm run build`
+## Getting Started
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+**Requirements:** Node.js 18+ and npm.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```bash
+npm install
+npm start
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Opens the dev server at [http://localhost:3000](http://localhost:3000) with hot reload.
 
-### `npm run eject`
+### Other scripts
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+| Command | Description |
+| --- | --- |
+| `npm start` | Run the app in development mode |
+| `npm run build` | Production build into `build/` |
+| `npm test` | Run the Jest/React Testing Library test suite in watch mode |
+| `npm run eject` | Eject from Create React App (irreversible) |
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+To run tests once (non-interactive, as used in CI):
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```bash
+CI=true npm test -- --watchAll=false
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Internationalization
 
-## Learn More
+The language switcher in the header lets visitors pick English, Russian, or Polish. The choice is detected from the browser on first visit and then persisted in `localStorage`. Translation strings live in `src/i18n/locales/{en,ru,pl}.json`.
 
-You can learn more in the [Create React Router documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Deployment
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+The site is a static build deployable to any static host; this project is currently deployed via [Vercel](https://vercel.com). `npm run build` outputs a production bundle to `build/`. A `.npmrc` with `legacy-peer-deps=true` is checked in so `npm install` resolves peer dependencies the same way in CI/deploy environments as it does locally.
 
-### Code Splitting
+## License
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web Router
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+See [LICENSE](./LICENSE).
