@@ -7,6 +7,7 @@ $bg-color: #f9f9f9;
 $border-color: #e5e5e5;
 
 $font-main: "Roboto", sans-serif;
+$font-heading: "Oswald", sans-serif;
 
 $container-width: 1200px;
 $container-padding: 20px;
@@ -95,9 +96,11 @@ h3,
 h4,
 h5,
 h6 {
+  font-family: $font-heading;
   color: $secondary-color;
   line-height: 1.2;
   font-weight: 700;
+  letter-spacing: 0.01em;
 }
 
 p {

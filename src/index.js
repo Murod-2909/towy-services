@@ -18,7 +18,7 @@ AOS.init({
 // never blocks the page's initial render or load event.
 const fontLink = document.createElement("link");
 fontLink.rel = "stylesheet";
-fontLink.href = "https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap";
+fontLink.href = "https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700;800&family=Roboto:wght@400;500;700;900&display=swap";
 document.head.appendChild(fontLink);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
